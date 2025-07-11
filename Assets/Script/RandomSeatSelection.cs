@@ -3,9 +3,23 @@ using UnityEngine;
 public class RandomSeatSelection : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private Transform[] seats;
+    [SerializeField] private Transform[] seats;  
 
     private void Start()
+    {
+       ///...
+    }
+
+    private void Update()
+    {
+        // Check for user input to change position
+        if (Input.GetKeyDown(KeyCode.Space)) // Change KeyCode as needed
+        {
+            ChangeBamPosition();
+        }
+    }
+
+    private void ChangeBamPosition()
     {
         if (seats == null || seats.Length == 0)
         {
