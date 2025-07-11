@@ -1,25 +1,25 @@
 using UnityEngine;
 
-public class RandomSeatSelection : MonoBehaviour
+public class RandomLegOut : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private Transform[] seats;  
+    [SerializeField] private Transform[] seats;
+    [SerializeField] private float changeInterval = 3f;
 
-    private void Start()
-    {
-       ///...
-    }
+    private float _timer;
 
     private void Update()
     {
-        // Check for user input to change position
-        if (Input.GetKeyDown(KeyCode.Space)) // Change KeyCode as needed
+        _timer += Time.deltaTime;
+
+        if (_timer >= changeInterval)
         {
-            ChangeBamPosition();
+            ChangeBiggiePosition();
+            _timer = 0f; // Reset the timer after changing position
         }
     }
 
-    private void ChangeBamPosition()
+    private void ChangeBiggiePosition()
     {
         if (seats == null || seats.Length == 0) return;
 
@@ -32,4 +32,3 @@ public class RandomSeatSelection : MonoBehaviour
         Debug.Log($"Selected seat: {selectedSeat.name} at position {selectedSeat.position}");
     }
 }
-
