@@ -1,0 +1,363 @@
+fileFormatVersion: 2
+guid: 8eff19f0b88d26040b0f725a60cfa19e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 2
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 50
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AirAsia_Buds_Turnaround_0
+      rect:
+        serializedVersion: 2
+        x: 1911
+        y: 9415
+        width: 1415
+        height: 1308
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e06f5eb51a730ae4e8c0f64bffe33233
+      internalID: 1747895966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirAsia_Buds_Turnaround_7
+      rect:
+        serializedVersion: 2
+        x: 4705
+        y: 9417
+        width: 1415
+        height: 1308
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71afde75463c9fc49bc7a86ed4be176c
+      internalID: 1363971135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirAsia_Buds_Turnaround_9
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 9404
+        width: 1415
+        height: 1308
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2545aaef277bcf3468d33a0ef1a4fe87
+      internalID: 1462594809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirAsia_Buds_Turnaround_11
+      rect:
+        serializedVersion: 2
+        x: 3342
+        y: 9417
+        width: 1343
+        height: 1308
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3217936e9ae25c2489c6017b047ad9cf
+      internalID: -1924903562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirAsia_Buds_Turnaround_31
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 5819
+        width: 944
+        height: 1223
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ec744a958b555e4a8d187d532e4de7c
+      internalID: 629480710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirAsia_Buds_Turnaround_32
+      rect:
+        serializedVersion: 2
+        x: 2068
+        y: 5819
+        width: 955
+        height: 1216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94979b1dc2e2296459080305b0f11273
+      internalID: -1696727781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirAsia_Buds_Turnaround_34
+      rect:
+        serializedVersion: 2
+        x: 3409
+        y: 5805
+        width: 967
+        height: 1230
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bba6f6c7935dc274fa0c937a644f001b
+      internalID: 1908761323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirAsia_Buds_Turnaround_35
+      rect:
+        serializedVersion: 2
+        x: 4831
+        y: 5793
+        width: 969
+        height: 1249
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 791f6f65aae9b03469a584ca5b343252
+      internalID: -229754646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ae7e2485d8ecd024b8b672846ab069f9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      AirAsia_Buds_Turnaround_0: 1747895966
+      AirAsia_Buds_Turnaround_1: -666842333
+      AirAsia_Buds_Turnaround_10: 209071855
+      AirAsia_Buds_Turnaround_11: -1924903562
+      AirAsia_Buds_Turnaround_12: -1546446739
+      AirAsia_Buds_Turnaround_13: 858653760
+      AirAsia_Buds_Turnaround_14: 1294335529
+      AirAsia_Buds_Turnaround_15: 1318480389
+      AirAsia_Buds_Turnaround_16: 1573930265
+      AirAsia_Buds_Turnaround_17: 695004490
+      AirAsia_Buds_Turnaround_18: -1487105086
+      AirAsia_Buds_Turnaround_19: 1473318863
+      AirAsia_Buds_Turnaround_2: 1286878749
+      AirAsia_Buds_Turnaround_20: -1609043479
+      AirAsia_Buds_Turnaround_21: -777756240
+      AirAsia_Buds_Turnaround_22: 1787676843
+      AirAsia_Buds_Turnaround_23: 2015192703
+      AirAsia_Buds_Turnaround_24: -879552052
+      AirAsia_Buds_Turnaround_25: -1246804340
+      AirAsia_Buds_Turnaround_26: -1076210011
+      AirAsia_Buds_Turnaround_27: -1792280719
+      AirAsia_Buds_Turnaround_28: 1253764947
+      AirAsia_Buds_Turnaround_29: -1795693425
+      AirAsia_Buds_Turnaround_3: -1104904744
+      AirAsia_Buds_Turnaround_30: -1723353445
+      AirAsia_Buds_Turnaround_31: 629480710
+      AirAsia_Buds_Turnaround_32: -1696727781
+      AirAsia_Buds_Turnaround_33: 1515226938
+      AirAsia_Buds_Turnaround_34: 1908761323
+      AirAsia_Buds_Turnaround_35: -229754646
+      AirAsia_Buds_Turnaround_36: -405269544
+      AirAsia_Buds_Turnaround_37: 1301186682
+      AirAsia_Buds_Turnaround_38: 663991491
+      AirAsia_Buds_Turnaround_39: -42942987
+      AirAsia_Buds_Turnaround_4: -274155513
+      AirAsia_Buds_Turnaround_40: -813111508
+      AirAsia_Buds_Turnaround_41: 647995058
+      AirAsia_Buds_Turnaround_42: -505634121
+      AirAsia_Buds_Turnaround_43: -504594107
+      AirAsia_Buds_Turnaround_5: -675107284
+      AirAsia_Buds_Turnaround_6: -1199432275
+      AirAsia_Buds_Turnaround_7: 1363971135
+      AirAsia_Buds_Turnaround_8: -2048214321
+      AirAsia_Buds_Turnaround_9: 1462594809
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
