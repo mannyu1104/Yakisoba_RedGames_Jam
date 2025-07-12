@@ -10,7 +10,7 @@ public class RandomComeOut : MonoBehaviour
     private Transform _selectedSeat;
     private Transform _spawnPoint;
     private float _timer;
-    private float _npcCooldown = 4f;
+    private float _npcCooldown = 6f;
 
     private void Update()
     {
