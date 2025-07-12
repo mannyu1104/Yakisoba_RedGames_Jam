@@ -64,17 +64,17 @@ public class Accelerometer_Control : MonoBehaviour
         //_rb.MovePosition(newPosition);
 
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(Vector3.forward, _moveSpeed * Time.deltaTime);
-        }
+        //if (Input.GetKey(KeyCode.A))
+        //{
+        //    transform.Rotate(Vector3.forward, _moveSpeed * Time.deltaTime);
+        //}
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(Vector3.forward, -_moveSpeed * Time.deltaTime);
-        }
+        //if (Input.GetKey(KeyCode.D))
+        //{
+        //    transform.Rotate(Vector3.forward, -_moveSpeed * Time.deltaTime);
+        //}
 
-        //transform.Rotate(Vector3.forward, _moveSpeed * Input.acceleration.x * Time.deltaTime);
+        transform.Rotate(Vector3.forward, _moveSpeed * Input.acceleration.x * Time.deltaTime);
     }
 
     
