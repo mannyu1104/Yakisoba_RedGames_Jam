@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SlideableObject : MonoBehaviour, ISlidingObjects
 {
-    private Rigidbody _rb;
+    //private Rigidbody _rb;
 
     [SerializeField] private float slideMultiplier = 1f;
     [SerializeField] private int coinsNumber = 10;
@@ -52,12 +52,6 @@ public class SlideableObject : MonoBehaviour, ISlidingObjects
 
         //Quaternion targetRotation = Quaternion.LookRotation(_trayTransform.forward, _trayTransform.up);
         //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 10f); // 10f = smoothing speed
-    }
-
-    public void OnPlayerMove(Vector3 velocityApply)
-    {
-        //Vector3 slideForce = velocityApply * slideMultiplier;
-        //_rb.AddForce(slideForce, ForceMode.Acceleration);
     }
 
     public int GetCoinsNumber()
