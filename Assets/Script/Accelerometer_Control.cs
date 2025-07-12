@@ -41,43 +41,13 @@ public class Accelerometer_Control : MonoBehaviour
 
     private void ControlBalance()
     {
-        //_velocityTilt = Input.acceleration;
-        //_velocityTilt = Quaternion.Euler(90, 0, 0) * _velocityTilt;
-
-        //float zVelocity;
-
-        //if (Mathf.Abs(_velocityTilt.z) >= 0.2f)
-        //{
-        //    zVelocity = _velocityTilt.z * _moveSpeed;
-        //}
-        //else
-        //{
-        //    zVelocity = 0f;
-        //}
-
-        //_smoothLerpVelocity.z = Mathf.Lerp(_smoothLerpVelocity.z, zVelocity, Time.deltaTime * _stopLerpSpeed);
-
-        //Vector3 trayDelta = new Vector3(0f, 0f, _smoothLerpVelocity.z * Time.fixedDeltaTime);
-        //Vector3 newPosition = _rb.position + trayDelta;
-
-        //TrayVelocity = (newPosition - _lastPosition) / Time.fixedDeltaTime;
-        //_lastPosition = newPosition;
-
-        //_rb.MovePosition(newPosition);
-
-
-        //if (Input.GetKey(KeyCode.A))
-        //{
-        //    transform.Rotate(Vector3.forward, _moveSpeed * Time.deltaTime);
-        //}
-
-        //if (Input.GetKey(KeyCode.D))
-        //{
-        //    transform.Rotate(Vector3.forward, -_moveSpeed * Time.deltaTime);
-        //}
-
-        transform.Rotate(Vector3.forward, _moveSpeed * Input.acceleration.x * Time.deltaTime);
+        transform.Rotate(Vector3.forward, -_moveSpeed * Input.acceleration.x);
     }
 
-    
+    public void CalibrateNeutralPosition()
+    {
+        // Store current accelerometer reading as the "neutral" position
+        _calibrationOffset = Input.acceleration;
+        Debug.Log("Calibrated neutral position: " + _calibrationOffset);
+    }
 }
