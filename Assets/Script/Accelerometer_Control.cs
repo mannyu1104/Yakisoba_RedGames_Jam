@@ -77,10 +77,5 @@ public class Accelerometer_Control : MonoBehaviour
         //transform.Rotate(Vector3.forward, _moveSpeed * Input.acceleration.x * Time.deltaTime);
     }
 
-    public void CalibrateNeutralPosition()
-    {
-        // Store current accelerometer reading as the "neutral" position
-        _calibrationOffset = Input.acceleration;
-        Debug.Log("Calibrated neutral position: " + _calibrationOffset);
-    }
+    
 }
