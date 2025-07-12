@@ -7,8 +7,8 @@ public class SlideableObject : MonoBehaviour, ISlidingObjects
     [SerializeField] private float slideMultiplier = 1f;
     [SerializeField] private int coinsNumber = 10;
 
-    private Transform _trayTransform;
-    private Accelerometer_Control _control;
+    //private Transform _trayTransform;
+    //private Accelerometer_Control _control;
     [SerializeField] private float _bufferDistanceBetweenTray = 0.1f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

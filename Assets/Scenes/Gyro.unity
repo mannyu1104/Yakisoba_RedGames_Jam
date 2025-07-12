@@ -925,7 +925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 8
-  _stopLerpSpeed: 3
+  _shakeForce: 3
 --- !u!54 &922898444
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1335,7 +1335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 8
-  _stopLerpSpeed: 3
+  _shakeForce: 4
 --- !u!65 &1924360988
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1355,8 +1355,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.046492, z: 0.9999999}
-  m_Center: {x: 0, y: 0.023246482, z: 0}
+  m_Size: {x: 1.0827043, y: 1.0464921, z: 0.9999999}
+  m_Center: {x: 0.003853954, y: 0.02324647, z: 0}
 --- !u!23 &1924360989
 MeshRenderer:
   m_ObjectHideFlags: 0

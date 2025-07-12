@@ -5,33 +5,36 @@ public class Accelerometer_Control : MonoBehaviour
 {
 
     [SerializeField] private float _moveSpeed = 2f;
-    //[SerializeField] private float _stopLerpSpeed = 3f;
+    [SerializeField] private float _shakeForce = 4f;
+
+    private float _timer;
+    private float _force;
+    private float _shakeInterval = 2f;
 
     private void FixedUpdate()
     {
+
         ControlMovement();
 
+        _timer += Time.fixedDeltaTime;
+
+        if (_timer > _shakeInterval)
+        {
+            _timer = 0f;    
+            RandomForce();
+        }
+
+        Shake();
     }
 
-    // Update is called once per frame
-    private void Update()
+    private void Shake()
     {
-        ControlBalance();
-
+        transform.Rotate(Vector3.forward, _force * Time.deltaTime);
     }
 
-    private void LateUpdate()
+    private void RandomForce()
     {
-        TrayVelocity = (transform.position - _lastPosition) / Time.deltaTime;
-        _lastPosition = transform.position;
-    }
-
-    private void ControlBalance()
-    {
-        //_rotationTilt = Input.acceleration.x;
-        //float zAngle = _rotationTilt * 180;
-
-        //transform.rotation = Quaternion.Euler(0, 0, -zAngle);
+        _force = Random.Range(-_shakeForce, _shakeForce);
     }
 
     private void ControlMovement()
@@ -61,16 +64,16 @@ public class Accelerometer_Control : MonoBehaviour
         //_rb.MovePosition(newPosition);
 
 
-        //if (Input.GetKey(KeyCode.A))
-        //{
-        //    transform.Rotate(Vector3.forward, _moveSpeed * Time.deltaTime);
-        //}
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.Rotate(Vector3.forward, _moveSpeed * Time.deltaTime);
+        }
 
-        //if (Input.GetKey(KeyCode.D))
-        //{
-        //    transform.Rotate(Vector3.forward, -_moveSpeed * Time.deltaTime);
-        //}
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.Rotate(Vector3.forward, -_moveSpeed * Time.deltaTime);
+        }
 
-        transform.Rotate(Vector3.forward, _moveSpeed * Input.acceleration.x * Time.deltaTime);
+        //transform.Rotate(Vector3.forward, _moveSpeed * Input.acceleration.x * Time.deltaTime);
     }
 }
