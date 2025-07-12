@@ -1,60 +1,79 @@
+using System.Linq;
 using UnityEngine;
 
 public class Accelerometer_Control : MonoBehaviour
 {
-    private Rigidbody _rb;
 
-    private float _rotationTilt;
-    private Vector3 _velocityTilt;
-    [SerializeField] private float _moveSpeed = 8f;
-    [SerializeField] private float _stopLerpSpeed = 3f;
+    [SerializeField] private float _moveSpeed = 2f;
+    [SerializeField] private float _shakeForce = 4f;
 
-    private Vector3 _smoothLerpVelocity;
+    private float _timer;
+    private float _force;
+    private float _shakeInterval = 2f;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Start()
+    private void FixedUpdate()
     {
-        _rb = GetComponent<Rigidbody>();
-    }
 
-    // Update is called once per frame
-    private void Update()
-    {
-        ControlBalance();
         ControlMovement();
 
+        _timer += Time.fixedDeltaTime;
+
+        if (_timer > _shakeInterval)
+        {
+            _timer = 0f;    
+            RandomForce();
+        }
+
+        Shake();
     }
 
-    private void ControlBalance()
+    private void Shake()
     {
-        _rotationTilt = Input.acceleration.x;
-        float zAngle = _rotationTilt * 180;
+        transform.Rotate(Vector3.forward, _force * Time.deltaTime);
+    }
 
-        transform.rotation = Quaternion.Euler(0, 0, -zAngle);
+    private void RandomForce()
+    {
+        _force = Random.Range(-_shakeForce, _shakeForce);
     }
 
     private void ControlMovement()
     {
-        _velocityTilt = Input.acceleration;
-        _velocityTilt = Quaternion.Euler(90, 0, 0) * _velocityTilt;
+        //_velocityTilt = Input.acceleration;
+        //_velocityTilt = Quaternion.Euler(90, 0, 0) * _velocityTilt;
 
-        float zVelocity;
+        //float zVelocity;
 
-        if (Mathf.Abs(_velocityTilt.z) >= 0.2f)
+        //if (Mathf.Abs(_velocityTilt.z) >= 0.2f)
+        //{
+        //    zVelocity = _velocityTilt.z * _moveSpeed;
+        //}
+        //else
+        //{
+        //    zVelocity = 0f;
+        //}
+
+        //_smoothLerpVelocity.z = Mathf.Lerp(_smoothLerpVelocity.z, zVelocity, Time.deltaTime * _stopLerpSpeed);
+
+        //Vector3 trayDelta = new Vector3(0f, 0f, _smoothLerpVelocity.z * Time.fixedDeltaTime);
+        //Vector3 newPosition = _rb.position + trayDelta;
+
+        //TrayVelocity = (newPosition - _lastPosition) / Time.fixedDeltaTime;
+        //_lastPosition = newPosition;
+
+        //_rb.MovePosition(newPosition);
+
+
+        if (Input.GetKey(KeyCode.A))
         {
-            zVelocity = _velocityTilt.z * _moveSpeed;
+            transform.Rotate(Vector3.forward, _moveSpeed * Time.deltaTime);
         }
-        else
+
+        if (Input.GetKey(KeyCode.D))
         {
-            zVelocity = 0f;
+            transform.Rotate(Vector3.forward, -_moveSpeed * Time.deltaTime);
         }
 
-        _smoothLerpVelocity.z = Mathf.Lerp(_smoothLerpVelocity.z, zVelocity, Time.deltaTime * _stopLerpSpeed);
-
-        Vector3 newPosition = _rb.position + new Vector3(0f, 0f, _smoothLerpVelocity.z * Time.deltaTime);
-
-        _rb.MovePosition(newPosition);
-
+        //transform.Rotate(Vector3.forward, _moveSpeed * Input.acceleration.x * Time.deltaTime);
     }
 }
