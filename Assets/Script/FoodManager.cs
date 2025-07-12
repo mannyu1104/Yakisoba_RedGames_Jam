@@ -26,4 +26,14 @@ public class FoodManager : MonoBehaviour
         _spawnedFood = Instantiate(_currentFood, _foodSpawnPoint, Quaternion.identity);
         _spawnedFood.transform.SetParent(transform);
     }
+
+    private void OnEnable()
+    {
+        GetMoney.OnSpawnFood += SpawnFood;
+    }
+
+    private void OnDisable()
+    {
+        GetMoney.OnSpawnFood -= SpawnFood;
+    }
 }

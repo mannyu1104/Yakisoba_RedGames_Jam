@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartCountdown()
     {
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(8f);
         isCountingDown = true;
         countdownPanel.SetActive(true);
         gameUI.SetActive(false);
