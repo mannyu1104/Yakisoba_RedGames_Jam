@@ -12,14 +12,14 @@ public class Food : MonoBehaviour
         if (transform.parent.rotation.z > 0f)
         {
             _moveSpeedRight = 0f; // Reset right speed when moving left
-            _moveSpeedLeft = Mathf.Lerp(_moveSpeedLeft, 8f, transform.parent.rotation.z / 8);
+            _moveSpeedLeft = Mathf.Lerp(_moveSpeedLeft, 8f, transform.parent.rotation.z / 15);
             transform.Translate(Vector3.left * _moveSpeedLeft * Time.deltaTime);
 
         }
         else if (transform.parent.rotation.z < 0f)
         {
             _moveSpeedLeft = 0f; // Reset left speed when moving right
-            _moveSpeedRight = Mathf.Lerp(_moveSpeedRight, 8f, transform.parent.rotation.z / -8);
+            _moveSpeedRight = Mathf.Lerp(_moveSpeedRight, 8f, transform.parent.rotation.z / -15);
             transform.Translate(Vector3.right * _moveSpeedRight * Time.deltaTime);
         }
     }
