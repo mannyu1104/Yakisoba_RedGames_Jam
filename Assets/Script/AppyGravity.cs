@@ -39,7 +39,7 @@ public class AppyGravity : MonoBehaviour
 
     private IEnumerator Destroy()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
         OnFoodDestroy?.Invoke(0f, 180f);
     }

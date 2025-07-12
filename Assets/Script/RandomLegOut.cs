@@ -9,6 +9,7 @@ public class RandomLegOut : MonoBehaviour
     private float _timer;
     private bool _isSeatSelected;
     private bool _isBamHere;
+    private bool _spawn = true;
     private Transform _selectedSeat;
 
     private void Update()
@@ -17,6 +18,7 @@ public class RandomLegOut : MonoBehaviour
 
         if (_timer >= _changeInterval)
         {
+            if (!_spawn) return;
             if (!_isSeatSelected)
             {
                 ChangeBiggiePosition();
@@ -58,5 +60,20 @@ public class RandomLegOut : MonoBehaviour
         transform.position = new Vector3(_selectedSeat.position.x, _selectedSeat.position.y + 0.8f, _selectedSeat.position.z);
         _isSeatSelected = false;
         _changeInterval = Random.Range(1f, 4f); // Randomize the next change interval
+    }
+
+    private void StopNPC(float test, float test2)
+    {
+        _spawn = false;
+    }
+
+    private void OnEnable()
+    {
+        AppyGravity.OnFoodDestroy += StopNPC;
+    }
+
+    private void OnDisable()
+    {
+        AppyGravity.OnFoodDestroy -= StopNPC;
     }
 }

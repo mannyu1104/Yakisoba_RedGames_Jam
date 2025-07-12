@@ -9,6 +9,7 @@ public class CollectMoney : MonoBehaviour
     [SerializeField] private GameObject _tray;
 
     public static Action<float, float> OnGetReward;
+    public static Action OnGetMoney;
 
     private GameObject _spawnedMoney;
     private int _moneyIndex;
@@ -52,8 +53,9 @@ public class CollectMoney : MonoBehaviour
 
         _spawnedMoney = Instantiate(_money[_moneyIndex], _tray.transform.position, Quaternion.identity);
         _spawnedMoney.transform.SetParent(_tray.transform); _spawnedMoney.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         OnGetReward?.Invoke(0f, -180f);
+        OnGetMoney?.Invoke();
 
     }
 }

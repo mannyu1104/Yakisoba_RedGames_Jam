@@ -16,7 +16,7 @@ public class PlayerBumb : MonoBehaviour
         {
             _cinemachineCamera.GenerateImpulse();
 
-            _dir = Random.Range(1, 2);
+            _dir = Random.Range(1, 3);
 
             if (_dir == 1)
             {
