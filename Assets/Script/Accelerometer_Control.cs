@@ -4,11 +4,8 @@ using UnityEngine;
 public class Accelerometer_Control : MonoBehaviour
 {
 
-    [SerializeField] private float _moveSpeed = 8f;
-    [SerializeField] private float _stopLerpSpeed = 3f;
-
-    public Vector3 TrayVelocity { get; private set; }
-
+    [SerializeField] private float _moveSpeed = 2f;
+    //[SerializeField] private float _stopLerpSpeed = 3f;
 
     private void FixedUpdate()
     {
@@ -57,14 +54,17 @@ public class Accelerometer_Control : MonoBehaviour
 
         //_rb.MovePosition(newPosition);
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(Vector3.forward, _moveSpeed * Time.deltaTime);
-        }
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(Vector3.forward, -_moveSpeed * Time.deltaTime);
-        }
+        //if (Input.GetKey(KeyCode.A))
+        //{
+        //    transform.Rotate(Vector3.forward, _moveSpeed * Time.deltaTime);
+        //}
+
+        //if (Input.GetKey(KeyCode.D))
+        //{
+        //    transform.Rotate(Vector3.forward, -_moveSpeed * Time.deltaTime);
+        //}
+
+        transform.Rotate(Vector3.forward, _moveSpeed * Input.acceleration.x * Time.deltaTime);
     }
 }
