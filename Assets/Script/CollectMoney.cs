@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,8 +8,11 @@ public class CollectMoney : MonoBehaviour
     [SerializeField] private GameObject[] _money;
     [SerializeField] private GameObject _tray;
 
+    public static Action<float, float> OnGetReward;
 
     private GameObject _spawnedMoney;
+    private int _moneyIndex;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Food"))
@@ -21,8 +25,35 @@ public class CollectMoney : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         Destroy(food);
-        _spawnedMoney = Instantiate(_money[0], _tray.transform.position, Quaternion.identity);
+
+        float amount = food.GetComponent<Food>().MoneyAmount;
+
+        switch (amount)
+        {
+            case 5:
+                _moneyIndex = 0;
+                break;
+            case 10:
+                _moneyIndex = 1;
+                break;
+            case 15:
+                _moneyIndex = 2;
+                break;
+            case 20:
+                _moneyIndex = 3;
+                break;
+            case 25:
+                _moneyIndex = 4;
+                break;
+            default:
+                _moneyIndex = 0;
+                break;
+        }
+
+        _spawnedMoney = Instantiate(_money[_moneyIndex], _tray.transform.position, Quaternion.identity);
         _spawnedMoney.transform.SetParent(_tray.transform); _spawnedMoney.SetActive(true);
-        
+        yield return new WaitForSeconds(2f);
+        OnGetReward?.Invoke(0f, -180f);
+
     }
 }

@@ -74,5 +74,17 @@ public class PlayerRotate : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        AppyGravity.OnFoodDestroy += Rotate;
+        CollectMoney.OnGetReward += Rotate;
+    }
+
+    private void OnDisable()
+    {
+        AppyGravity.OnFoodDestroy -= Rotate;
+        CollectMoney.OnGetReward -= Rotate;
+    }
+
 
 }

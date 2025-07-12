@@ -10,6 +10,7 @@ TagManager:
   - NPC
   - Food
   - Tray
+  - Money
   layers:
   - Default
   - TransparentFX

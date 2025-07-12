@@ -6,6 +6,9 @@ public class Food : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float _moveSpeedLeft = 0f;
     [SerializeField] private float _moveSpeedRight = 0f;
+    [SerializeField] private int _moneyAmount;
+
+    public int MoneyAmount => _moneyAmount;
 
     private void Update()
     {
