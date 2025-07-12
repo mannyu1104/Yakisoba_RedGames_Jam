@@ -11,9 +11,12 @@ public class SimpleMenuController : MonoBehaviour
     [Header("UI References")]
     public GameObject menuPanel;           // Main menu UI (title + hint)
     public GameObject howToPlayPanel;      // Panel showing how to play
+    public GameObject leaderboardPanel;    // Leaderboard panel
     public Button howToPlayButton;         // "How to Play" button
     public Button closeHowToPlayButton;    // "X" close button on top right
     public Button tapToStartButton; // Tap to start button
+    public Button leaderboardButton; // Show Leaderboard
+    public Button closeLeaderboardButton; // Close Leaderboard
 
     [Header("Scene Settings")]
     public string gameSceneName = "GameScene";
@@ -25,10 +28,13 @@ public class SimpleMenuController : MonoBehaviour
     {
         // Hide HowToPlay at start
         howToPlayPanel.SetActive(false);
+        leaderboardPanel.SetActive(false);
 
         // Setup button listeners
         howToPlayButton.onClick.AddListener(ShowHowToPlay);
         closeHowToPlayButton.onClick.AddListener(HideHowToPlay);
+        leaderboardButton.onClick.AddListener(ShowLeaderboard);
+        closeLeaderboardButton.onClick.AddListener(HideLeaderboard);
     }
 
 
@@ -37,7 +43,7 @@ public class SimpleMenuController : MonoBehaviour
         if (hasStarted || isShowingHowToPlay)
             return;
 
-    #if UNITY_ANDROID || UNITY_IOS
+#if UNITY_ANDROID || UNITY_IOS
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             // 💡 检查是否触碰 UI
@@ -46,7 +52,7 @@ public class SimpleMenuController : MonoBehaviour
 
             StartGame();
         }
-    #else
+#else
         if (Input.GetMouseButtonDown(0))
         {
             // 💡 检查是否点到 UI
@@ -55,7 +61,7 @@ public class SimpleMenuController : MonoBehaviour
 
             StartGame();
         }
-    #endif
+#endif
     }
 
     /// <summary>
@@ -103,5 +109,21 @@ public class SimpleMenuController : MonoBehaviour
         {
             HideHowToPlay();
         }
+    }
+
+    public void ShowLeaderboard()
+    {
+        leaderboardPanel.SetActive(true);
+        // Disable tap to start button
+        if (tapToStartButton != null)
+            tapToStartButton.gameObject.SetActive(false);
+    }
+    
+    public void HideLeaderboard()
+    {
+        leaderboardPanel.SetActive(false);
+        // Re-enable tap to start button
+        if (tapToStartButton != null)
+            tapToStartButton.gameObject.SetActive(true);
     }
 }
