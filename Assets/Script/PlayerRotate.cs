@@ -33,13 +33,13 @@ public class PlayerRotate : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
-        float duration = 6f;
+        float duration = 3f;
         float elapsed = 0f;
 
         Quaternion startRotation = Quaternion.Euler(0f, angle1, 0f);
         Quaternion endRotation = Quaternion.Euler(0f, angle2, 0f);
 
-        while (transform.rotation.y != angle2)
+        while (transform.rotation.y != angle2 && elapsed <= duration)
         {
             float t = elapsed / duration;
             transform.rotation = Quaternion.Lerp(startRotation, endRotation, t);
@@ -48,21 +48,24 @@ public class PlayerRotate : MonoBehaviour
         }
 
         _isRotating = false;
+        
         _playerMovement.enabled = true;
         _accelerometer_Control.enabled = true;
-
+       
     }
 
     private void OnEnable()
     {
         AppyGravity.OnFoodDestroy += Rotate;
         CollectMoney.OnGetReward += Rotate;
+        GetMoney.OnComplete += Rotate;
     }
 
     private void OnDisable()
     {
         AppyGravity.OnFoodDestroy -= Rotate;
         CollectMoney.OnGetReward -= Rotate;
+        GetMoney.OnComplete -= Rotate;
     }
 
 

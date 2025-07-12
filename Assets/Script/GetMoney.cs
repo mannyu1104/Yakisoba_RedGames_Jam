@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class GetMoney : MonoBehaviour
@@ -6,6 +8,9 @@ public class GetMoney : MonoBehaviour
     [SerializeField] private int _moneyAmount;
     
     private GameManager _gameManager;
+
+    public static Action OnSpawnFood;
+    public static Action<float, float> OnComplete;
 
     private void Start()
     {
@@ -18,7 +23,15 @@ public class GetMoney : MonoBehaviour
         {
             _moneyAmount =  other.GetComponent<Money>().MoneyAmount;
             _gameManager.AddScore(_moneyAmount);
-            Destroy(other.gameObject);
+            StartCoroutine(SpawnFood());
         }
+    }
+
+    private IEnumerator SpawnFood()
+    {
+        yield return new WaitForSeconds(1f);
+        OnSpawnFood?.Invoke();
+        yield return new WaitForSeconds(1f);
+        OnComplete?.Invoke(0f, 180f);
     }
 }
