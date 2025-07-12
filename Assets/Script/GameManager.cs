@@ -1,6 +1,3 @@
-// ============================
-// GameManager.cs
-// ============================
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;

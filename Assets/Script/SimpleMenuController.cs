@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class SimpleMenuController : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class SimpleMenuController : MonoBehaviour
     public Button tapToStartButton;
     public Button leaderboardButton;
     public Button closeLeaderboardButton;
+
+    [Header("Score Display")]
+    public TextMeshProUGUI highestScoreText; 
 
     [Header("Scene Settings")]
     public string gameSceneName = "GameScene";
@@ -29,6 +33,9 @@ public class SimpleMenuController : MonoBehaviour
         leaderboardButton.onClick.AddListener(ShowLeaderboard);
         closeLeaderboardButton.onClick.AddListener(HideLeaderboard);
         tapToStartButton.onClick.AddListener(StartGame);
+
+        int highestScore = PlayerPrefs.GetInt("HighestScore", 0);
+        highestScoreText.text = "Highest Score: " + highestScore;
     }
 
     public void StartGame()
@@ -53,12 +60,10 @@ public class SimpleMenuController : MonoBehaviour
     public void ShowLeaderboard()
     {
         leaderboardPanel.SetActive(true);
-        tapToStartButton.gameObject.SetActive(false);
     }
 
     public void HideLeaderboard()
     {
         leaderboardPanel.SetActive(false);
-        tapToStartButton.gameObject.SetActive(true);
     }
 }
