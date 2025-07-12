@@ -14,53 +14,50 @@ public class SlideableObject : MonoBehaviour, ISlidingObjects
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        _rb = GetComponent<Rigidbody>();
+        //_rb = GetComponent<Rigidbody>();
 
-        GameObject tray = GameObject.FindGameObjectWithTag("Tray");
-        if (tray != null)
-        {
-            _trayTransform = tray.transform;
-        }
+        //GameObject tray = GameObject.FindGameObjectWithTag("Tray");
+        //if (tray != null)
+        //{
+        //    _trayTransform = tray.transform;
+        //}
 
     }
 
     private void FixedUpdate()
     {
-        if (_control == null) return;
+        //if (_control == null) return;
 
-        // Match plate movement (base velocity)
-        Vector3 stickVelocity = _control.TrayVelocity;
+        //// Match plate movement (base velocity)
+        //Vector3 stickVelocity = _control.TrayVelocity;
 
-        // Match tray movement directly
-        _rb.linearVelocity = new Vector3(stickVelocity.x, _rb.linearVelocity.y, stickVelocity.z);
+        //// Add sliding reaction
+        //Vector3 slideForce = -stickVelocity * slideMultiplier;
+        //_rb.AddForce(slideForce, ForceMode.VelocityChange);
 
-        // Then apply extra sliding force based on tray tilt (if needed)
-        Vector3 slideForce =- stickVelocity * slideMultiplier;
-        _rb.AddForce(slideForce, ForceMode.Acceleration);
+        //// Prevent from falling below plate
+        //Vector3 pos = transform.position;
+        //float trayY = _trayTransform.position.y;
 
-        // Prevent from falling below plate
-        Vector3 pos = transform.position;
-        float trayY = _trayTransform.position.y;
+        //if (pos.y < trayY + _bufferDistanceBetweenTray)
+        //{
+        //    pos.y = trayY + _bufferDistanceBetweenTray;
+        //    transform.position = pos;
 
-        if (pos.y < trayY + _bufferDistanceBetweenTray)
-        {
-            pos.y = trayY + _bufferDistanceBetweenTray;
-            transform.position = pos;
+        //    if (_rb.linearVelocity.y < 0)
+        //    {
+        //        _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0f, _rb.linearVelocity.z);
+        //    }
+        //}
 
-            if (_rb.linearVelocity.y < 0)
-            {
-                _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0f, _rb.linearVelocity.z);
-            }
-        }
-
-        Quaternion targetRotation = Quaternion.LookRotation(_trayTransform.forward, _trayTransform.up);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 10f); // 10f = smoothing speed
+        //Quaternion targetRotation = Quaternion.LookRotation(_trayTransform.forward, _trayTransform.up);
+        //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 10f); // 10f = smoothing speed
     }
 
     public void OnPlayerMove(Vector3 velocityApply)
     {
-        Vector3 slideForce = velocityApply * slideMultiplier;
-        _rb.AddForce(slideForce, ForceMode.Acceleration);
+        //Vector3 slideForce = velocityApply * slideMultiplier;
+        //_rb.AddForce(slideForce, ForceMode.Acceleration);
     }
 
     public int GetCoinsNumber()
@@ -70,18 +67,18 @@ public class SlideableObject : MonoBehaviour, ISlidingObjects
 
     public Vector3 AdjustVelocityToSlope(Vector3 velocity)
     {
-        var ray = new Ray(transform.position, Vector3.down);
+        //var ray = new Ray(transform.position, Vector3.down);
 
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, 0.2f))
-        {
-            var slopeRotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
-            var adjustedVelocity = slopeRotation * velocity;
+        //if (Physics.Raycast(ray, out RaycastHit hitInfo, 0.2f))
+        //{
+        //    var slopeRotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
+        //    var adjustedVelocity = slopeRotation * velocity;
 
-            if (adjustedVelocity.y < 0)
-            {
-                return adjustedVelocity;
-            }
-        }
+        //    if (adjustedVelocity.y < 0)
+        //    {
+        //        return adjustedVelocity;
+        //    }
+        //}
 
         return velocity;
     }
