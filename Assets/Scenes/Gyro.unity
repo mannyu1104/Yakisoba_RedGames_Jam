@@ -772,12 +772,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7aae707ab8652488b2547ff333e47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rb: {fileID: 0}
-  _rotationTilt: 0
-  _velocityTilt: {x: 0, y: 0, z: 0}
   _moveSpeed: 8
   _stopLerpSpeed: 3
-  _smoothLerpVelocity: {x: 0, y: 0, z: 0}
 --- !u!54 &922898444
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -970,13 +966,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357e2e1ef8d076640982a5b3a4914e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quads:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   labels: []
 --- !u!4 &1431291526
 Transform:
