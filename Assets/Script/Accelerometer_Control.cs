@@ -24,7 +24,8 @@ public class Accelerometer_Control : MonoBehaviour
             RandomForce();
         }
 
-        Shake();
+        //Shake();
+
     }
 
     private void Shake()

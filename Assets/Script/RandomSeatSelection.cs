@@ -9,16 +9,7 @@ public class RandomSeatSelection : MonoBehaviour
 
     private void Start()
     {
-       ///...
-    }
-
-    private void Update()
-    {
-        // Check for user input to change position
-        if (Input.GetKeyDown(KeyCode.Space)) // Change KeyCode as needed
-        {
-            ChangeBamPosition();
-        }
+        ChangeBamPosition();
     }
 
     private void ChangeBamPosition()
@@ -30,7 +21,17 @@ public class RandomSeatSelection : MonoBehaviour
         _selectedSeat = _seats[randomIndex];
 
         // Set the position of the GameObject to the selected seat
-        transform.position = new Vector3 (_selectedSeat.position.x, _selectedSeat.position.y + 0.8f, _selectedSeat.position.z);    
+        transform.position = new Vector3(_selectedSeat.position.x, _selectedSeat.position.y + 0.8f, _selectedSeat.position.z);
+    }
+
+    private void OnEnable()
+    {
+        GetMoney.OnSpawnFood += ChangeBamPosition;
+    }
+
+    private void OnDisable()
+    {
+        GetMoney.OnSpawnFood -= ChangeBamPosition;
     }
 }
 

@@ -7,13 +7,13 @@ public class PlayerRotate : MonoBehaviour
 {
     private PlayerMovement _playerMovement;
     private Accelerometer_Control _accelerometer_Control;
-    
-    private bool _isRotating;
+    private Transform _tray;
 
     private void Start()
     {
         _playerMovement = GetComponent<PlayerMovement>();
         _accelerometer_Control = GetComponentInChildren<Accelerometer_Control>();
+        _tray = GameObject.FindGameObjectWithTag("Tray").transform;
         _playerMovement.enabled = false;
         _accelerometer_Control.enabled = false;
 
@@ -33,7 +33,7 @@ public class PlayerRotate : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
-        float duration = 3f;
+        float duration = 2f;
         float elapsed = 0f;
 
         Quaternion startRotation = Quaternion.Euler(0f, angle1, 0f);
@@ -46,11 +46,10 @@ public class PlayerRotate : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
-
-        _isRotating = false;
         
         _playerMovement.enabled = true;
         _accelerometer_Control.enabled = true;
+        _tray.rotation = Quaternion.Euler(0, 0, 0);
        
     }
 
