@@ -1,3 +1,6 @@
+// ============================
+// GameManager.cs
+// ============================
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -6,7 +9,6 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     [Header("UI Panels")]
-    public GameObject howToPlayPanel;
     public GameObject countdownPanel;
     public GameObject gameUI;
     public GameObject gameOverPanel;
@@ -17,26 +19,25 @@ public class GameManager : MonoBehaviour
     [Header("Gameplay UI")]
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI highScoreText;
+    public TextMeshProUGUI highestScoreText;
 
     [Header("Game Over UI")]
     public TextMeshProUGUI finalScoreText;
-    public TextMeshProUGUI gameOverHighScoreText;
+    public TextMeshProUGUI gameOverHighestScoreText;
     public GameObject tapToContinueText;
 
     [Header("Settings")]
-    public float gameDuration = 120f; // 2 minutes
+    public float gameDuration = 120f; // Total game time in seconds
 
     private float gameTimer;
     private int score = 0;
-    private int highScore = 0;
+    private int highestScore = 0;
     private bool isGameRunning = false;
     private bool isCountingDown = false;
     private bool isGameOver = false;
 
     void Start()
     {
-        howToPlayPanel.SetActive(true);
         countdownPanel.SetActive(false);
         gameUI.SetActive(false);
         gameOverPanel.SetActive(false);
@@ -44,38 +45,30 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
 
         gameTimer = gameDuration;
-        highScore = PlayerPrefs.GetInt("HighScore", 0);
-        highScoreText.text = "High Score: " + highScore;
+        highestScore = PlayerPrefs.GetInt("HighestScore", 0);
+        highestScoreText.text = "Highest Score: " + highestScore;
+
+        StartCoroutine(StartCountdown());
     }
 
     void Update()
     {
-        if (!isGameRunning && !isCountingDown && !isGameOver && Input.GetMouseButtonDown(0) && howToPlayPanel.activeSelf)
-        {
-            howToPlayPanel.SetActive(false);
-            StartCoroutine(StartCountdown());
-        }
-
         if (isGameRunning)
         {
             gameTimer -= Time.deltaTime;
             timerText.text = FormatTime(gameTimer);
-
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                AddScore(200);
-            }
 
             if (gameTimer <= 0)
             {
                 EndGame();
             }
         }
+    }
 
-        if (isGameOver && Input.GetMouseButtonDown(0))
-        {
-            SceneManager.LoadScene("UIandAudio");
-        }
+    public void ReturnToMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("UIandAudio");
     }
 
     IEnumerator StartCountdown()
@@ -124,10 +117,19 @@ public class GameManager : MonoBehaviour
         UpdateScoreText();
     }
 
-    void AddScore(int amount)
+    public void AddScore(int amount)
     {
         score += amount;
         UpdateScoreText();
+
+        // Update Highest Score in real-time
+        if (score > highestScore)
+        {
+            highestScore = score;
+            highestScoreText.text = "Highest Score: " + highestScore;
+            PlayerPrefs.SetInt("HighestScore", highestScore);
+            PlayerPrefs.Save();
+        }
     }
 
     void UpdateScoreText()
@@ -139,7 +141,6 @@ public class GameManager : MonoBehaviour
     {
         isGameRunning = false;
         isGameOver = true;
-        Time.timeScale = 0f;
 
         gameOverPanel.SetActive(true);
         StartCoroutine(AnimateFinalScore());
@@ -159,22 +160,19 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSecondsRealtime(0.01f);
         }
 
-        // High score logic
-        if (score >= highScore)
+        // Display current highest score
+        gameOverHighestScoreText.text = "Highest Score: " + highestScore;
+
+        // If new record, animate it
+        if (score > PlayerPrefs.GetInt("HighestScore", 0))
         {
-            PlayerPrefs.SetInt("HighScore", score);
-            PlayerPrefs.Save();
-            gameOverHighScoreText.text = "High Score: " + score;
-            gameOverHighScoreText.transform.localScale = Vector3.one * 2.5f;
-            yield return ScaleDown(gameOverHighScoreText.transform);
-        }
-        else
-        {
-            gameOverHighScoreText.text = "High Score: " + highScore;
+            gameOverHighestScoreText.transform.localScale = Vector3.one * 2.5f;
+            yield return ScaleDown(gameOverHighestScoreText.transform);
         }
 
         yield return new WaitForSecondsRealtime(0.5f);
         tapToContinueText.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     string FormatTime(float time)
@@ -182,5 +180,10 @@ public class GameManager : MonoBehaviour
         int minutes = Mathf.FloorToInt(time / 60f);
         int seconds = Mathf.FloorToInt(time % 60f);
         return string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    public void Add200ScoreByButton()
+    {
+        AddScore(200);
     }
 }
