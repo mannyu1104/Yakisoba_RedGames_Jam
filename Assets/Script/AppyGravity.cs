@@ -19,7 +19,7 @@ public class AppyGravity : MonoBehaviour
 
     private void CollisionBelow()
     {
-        _isTray = Physics.CheckBox(transform.position, transform.localScale * 2, Quaternion.identity, LayerMask.GetMask("Tray"));
+        _isTray = Physics.CheckBox(transform.position, transform.localScale * 1.5f, Quaternion.identity, LayerMask.GetMask("Tray"));
         
         if (_isTray)
         {
