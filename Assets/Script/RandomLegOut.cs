@@ -55,8 +55,7 @@ public class RandomLegOut : MonoBehaviour
     private void MoveToTheSeat()
     {
         // Set the position of the GameObject to the selected seat
-        transform.position = _selectedSeat.position;
-        transform.rotation = _selectedSeat.rotation;
+        transform.position = new Vector3(_selectedSeat.position.x, _selectedSeat.position.y + 0.8f, _selectedSeat.position.z);
         _isSeatSelected = false;
         _changeInterval = Random.Range(1f, 4f); // Randomize the next change interval
     }
