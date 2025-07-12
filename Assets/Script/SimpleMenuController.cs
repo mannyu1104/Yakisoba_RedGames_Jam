@@ -26,15 +26,13 @@ public class SimpleMenuController : MonoBehaviour
 
     void Start()
     {
-        // Hide HowToPlay at start
         howToPlayPanel.SetActive(false);
         leaderboardPanel.SetActive(false);
 
-        // Setup button listeners
-        howToPlayButton.onClick.AddListener(ShowHowToPlay);
-        closeHowToPlayButton.onClick.AddListener(HideHowToPlay);
-        leaderboardButton.onClick.AddListener(ShowLeaderboard);
-        closeLeaderboardButton.onClick.AddListener(HideLeaderboard);
+        // howToPlayButton.onClick.AddListener(ShowHowToPlay);
+        // closeHowToPlayButton.onClick.AddListener(HideHowToPlay);
+        // leaderboardButton.onClick.AddListener(ShowLeaderboard);
+        // closeLeaderboardButton.onClick.AddListener(HideLeaderboard);
     }
 
 
@@ -43,25 +41,19 @@ public class SimpleMenuController : MonoBehaviour
         if (hasStarted || isShowingHowToPlay)
             return;
 
-#if UNITY_ANDROID || UNITY_IOS
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            // 💡 检查是否触碰 UI
-            if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
-                return;
+        // if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        // {
+        //     if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+        //         return;
+        //     StartGame();
+        // }
 
-            StartGame();
-        }
-#else
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            // 💡 检查是否点到 UI
             if (EventSystem.current.IsPointerOverGameObject())
                 return;
-
             StartGame();
         }
-#endif
     }
 
     /// <summary>
@@ -81,9 +73,9 @@ public class SimpleMenuController : MonoBehaviour
         isShowingHowToPlay = true;
         howToPlayPanel.SetActive(true);
 
-        // Fully disable button object
-        if (tapToStartButton != null)
-            tapToStartButton.gameObject.SetActive(false);
+        // // Fully disable button object
+        // if (tapToStartButton != null)
+        //     tapToStartButton.gameObject.SetActive(false);
 
     }
 
@@ -94,9 +86,9 @@ public class SimpleMenuController : MonoBehaviour
     {
         isShowingHowToPlay = false;
         howToPlayPanel.SetActive(false);
-        // Re-enable button object
-        if (tapToStartButton != null)
-            tapToStartButton.gameObject.SetActive(true);
+        // // Re-enable button object
+        // if (tapToStartButton != null)
+        //     tapToStartButton.gameObject.SetActive(true);
     }
 
     /// <summary>
@@ -114,16 +106,16 @@ public class SimpleMenuController : MonoBehaviour
     public void ShowLeaderboard()
     {
         leaderboardPanel.SetActive(true);
-        // Disable tap to start button
-        if (tapToStartButton != null)
-            tapToStartButton.gameObject.SetActive(false);
+        // // Disable tap to start button
+        // if (tapToStartButton != null)
+        //     tapToStartButton.gameObject.SetActive(false);
     }
     
     public void HideLeaderboard()
     {
         leaderboardPanel.SetActive(false);
-        // Re-enable tap to start button
-        if (tapToStartButton != null)
-            tapToStartButton.gameObject.SetActive(true);
+        // // Re-enable tap to start button
+        // if (tapToStartButton != null)
+        //     tapToStartButton.gameObject.SetActive(true);
     }
 }
