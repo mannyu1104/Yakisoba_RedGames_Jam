@@ -18,11 +18,6 @@ public class FoodManager : MonoBehaviour
         SpawnFood();
     }
 
-    //private void Update()
-    //{
-    //    //transform.LookAt(_player);
-    //}
-
     private void SpawnFood()
     {
         _currentFood = _food[Random.Range(0, _food.Length)];
