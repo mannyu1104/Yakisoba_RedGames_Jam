@@ -30,7 +30,7 @@ public class RandomSeatSelection : MonoBehaviour
         _selectedSeat = _seats[randomIndex];
 
         // Set the position of the GameObject to the selected seat
-        transform.position = new Vector3 (_selectedSeat.position.x, _selectedSeat.position.y + 0.5f, _selectedSeat.position.z);    
+        transform.position = new Vector3 (_selectedSeat.position.x, _selectedSeat.position.y + 0.8f, _selectedSeat.position.z);    
     }
 }
 
