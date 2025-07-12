@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class Accelerometer_Control : MonoBehaviour
@@ -6,10 +7,13 @@ public class Accelerometer_Control : MonoBehaviour
 
     private float _rotationTilt;
     private Vector3 _velocityTilt;
+    private Vector3 _lastPosition;
     [SerializeField] private float _moveSpeed = 8f;
     [SerializeField] private float _stopLerpSpeed = 3f;
 
     private Vector3 _smoothLerpVelocity;
+
+    public Vector3 TrayVelocity { get; private set; }
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,11 +22,16 @@ public class Accelerometer_Control : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
+    private void FixedUpdate()
+    {
+        ControlMovement();
+
+    }
+
     // Update is called once per frame
     private void Update()
     {
         ControlBalance();
-        ControlMovement();
 
     }
 
@@ -52,9 +61,25 @@ public class Accelerometer_Control : MonoBehaviour
 
         _smoothLerpVelocity.z = Mathf.Lerp(_smoothLerpVelocity.z, zVelocity, Time.deltaTime * _stopLerpSpeed);
 
-        Vector3 newPosition = _rb.position + new Vector3(0f, 0f, _smoothLerpVelocity.z * Time.deltaTime);
+        Vector3 trayDelta = new Vector3(0f, 0f, _smoothLerpVelocity.z * Time.fixedDeltaTime);
+        Vector3 newPosition = _rb.position + trayDelta;
+
+        TrayVelocity = (newPosition - _lastPosition) / Time.fixedDeltaTime;
+        _lastPosition = newPosition;
 
         _rb.MovePosition(newPosition);
 
     }
+
+    private void OnTriggerStay(Collider collision)
+    {
+        if (collision.CompareTag("SlideableObjects"))
+        {
+
+            Vector3 adjustedVelocity = collision.GetComponent<SlideableObject>().AdjustVelocityToSlope(_smoothLerpVelocity);
+            collision.GetComponent<SlideableObject>().OnPlayerMove(adjustedVelocity);
+
+        }
+    }
+
 }
