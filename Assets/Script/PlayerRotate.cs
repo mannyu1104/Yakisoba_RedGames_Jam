@@ -6,12 +6,8 @@ public class PlayerRotate : MonoBehaviour
 {
     private PlayerMovement _playerMovement;
     private Accelerometer_Control _accelerometer_Control;
-    
-    private float _timer;
-    private bool _isRotating;
-    private float _duration = 3f;
 
-    public static Action<bool> OnStart;
+    private bool _isRotating;
 
     private void Start()
     {
@@ -20,51 +16,34 @@ public class PlayerRotate : MonoBehaviour
         _playerMovement.enabled = false;
         _accelerometer_Control.enabled = false;
 
-        StartCoroutine(StartRotation());
+        StartCoroutine(StartRotation(180f, 0f));
     }
 
-    private void Update()
+    private void Rotate(float angle1, float angle2)
     {
-        _timer += Time.deltaTime;
-        if (_timer > _duration)
-        {
-            _timer = 0f;
-            _isRotating = false;
-            OnStart?.Invoke(true);
+        _playerMovement.enabled = false;
+        _accelerometer_Control.enabled = false;
 
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.B))
-            {
-                _timer = 0f;
-                _isRotating = true;
-
-            }
-        }
-
-        if (_isRotating)
-        {
-            StartCoroutine(StartRotation());
-        }
-
+        StartCoroutine(StartRotation(angle1, angle2));
     }
 
-    private IEnumerator StartRotation()
+
+    private IEnumerator StartRotation(float angle1, float angle2)
     {
         yield return new WaitForSeconds(1f);
 
-        float duration = 6f;
+        float duration = 2f;
         float elapsed = 0f;
 
-        Quaternion startRotation = Quaternion.Euler(0f, 180f, 0f);
-        Quaternion endRotation = Quaternion.Euler(0f, 0f, 0f);
+        Quaternion startRotation = Quaternion.Euler(0f, angle1, 0f);
+        Quaternion endRotation = Quaternion.Euler(0f, angle2, 0f);
 
-        while (transform.rotation.y != 0)
+        while (transform.rotation.y != angle2 && elapsed <= duration)
         {
             float t = elapsed / duration;
             transform.rotation = Quaternion.Lerp(startRotation, endRotation, t);
             elapsed += Time.deltaTime;
+            Debug.Log("elapsed: " + elapsed);
             yield return null;
         }
 
@@ -78,12 +57,14 @@ public class PlayerRotate : MonoBehaviour
     {
         AppyGravity.OnFoodDestroy += Rotate;
         CollectMoney.OnGetReward += Rotate;
+        GetMoney.OnComplete += Rotate;
     }
 
     private void OnDisable()
     {
         AppyGravity.OnFoodDestroy -= Rotate;
         CollectMoney.OnGetReward -= Rotate;
+        GetMoney.OnComplete -= Rotate;
     }
 
 
