@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 1427929031236879493}
   - component: {fileID: 5077866740434613845}
   - component: {fileID: 2033433333139694153}
-  - component: {fileID: -8694751850542584926}
+  - component: {fileID: 5973587510629328890}
+  - component: {fileID: 1762874514115858122}
   m_Layer: 0
   m_Name: Nasi Lemak
   m_TagString: Food
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4740148622808641478}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.93, y: 1, z: -25.64}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -125,7 +126,7 @@ MonoBehaviour:
   slideMultiplier: 1
   coinsNumber: 10
   _bufferDistanceBetweenTray: 0.2
---- !u!114 &-8694751850542584926
+--- !u!114 &5973587510629328890
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,3 +140,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeedLeft: 0
   _moveSpeedRight: 0
+--- !u!114 &1762874514115858122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4740148622808641478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34dad1a9370ba4d48b8e841c10b46580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

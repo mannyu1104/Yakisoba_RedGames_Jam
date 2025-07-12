@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 4517019711734716710}
   - component: {fileID: 2637801590811588679}
   - component: {fileID: -3189144841965894783}
-  - component: {fileID: -4801506827776104917}
+  - component: {fileID: -54483304589781691}
+  - component: {fileID: 274540454524744622}
   m_Layer: 0
   m_Name: Cocunut
   m_TagString: Food
@@ -125,7 +126,7 @@ MonoBehaviour:
   slideMultiplier: 1
   coinsNumber: 10
   _bufferDistanceBetweenTray: 0.2
---- !u!114 &-4801506827776104917
+--- !u!114 &-54483304589781691
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,3 +140,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeedLeft: 0
   _moveSpeedRight: 0
+--- !u!114 &274540454524744622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808203133689865356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34dad1a9370ba4d48b8e841c10b46580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

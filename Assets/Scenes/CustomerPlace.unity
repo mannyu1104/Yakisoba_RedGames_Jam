@@ -4222,6 +4222,9 @@ GameObject:
   - component: {fileID: 2135726050}
   - component: {fileID: 2135726055}
   - component: {fileID: 2135726057}
+  - component: {fileID: 2135726050}
+  - component: {fileID: 2135726055}
+  - component: {fileID: 2135726056}
   m_Layer: 7
   m_Name: tray
   m_TagString: Tray
@@ -4241,8 +4244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7aae707ab8652488b2547ff333e47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 2
-  _shakeForce: 4
+  _moveSpeed: 5
 --- !u!23 &2135726052
 MeshRenderer:
   m_ObjectHideFlags: 0

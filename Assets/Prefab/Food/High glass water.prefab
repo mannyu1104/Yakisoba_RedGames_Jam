@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 4951083301853826171}
   - component: {fileID: 4946088267297154982}
   - component: {fileID: -7143536993971036765}
-  - component: {fileID: -6953548161984217403}
+  - component: {fileID: -7688224926327463185}
+  - component: {fileID: -2278108298091358675}
   m_Layer: 0
   m_Name: High glass water
   m_TagString: Food
@@ -125,7 +126,7 @@ MonoBehaviour:
   slideMultiplier: 1
   coinsNumber: 10
   _bufferDistanceBetweenTray: 0.2
---- !u!114 &-6953548161984217403
+--- !u!114 &-7688224926327463185
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,3 +140,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeedLeft: 0
   _moveSpeedRight: 0
+--- !u!114 &-2278108298091358675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329788774921914419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34dad1a9370ba4d48b8e841c10b46580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

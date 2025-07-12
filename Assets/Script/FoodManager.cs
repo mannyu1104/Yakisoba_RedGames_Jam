@@ -18,6 +18,11 @@ public class FoodManager : MonoBehaviour
         SpawnFood();
     }
 
+    //private void Update()
+    //{
+    //    //transform.LookAt(_player);
+    //}
+
     private void SpawnFood()
     {
         _currentFood = _food[Random.Range(0, _food.Length)];
@@ -25,6 +30,5 @@ public class FoodManager : MonoBehaviour
 
         _spawnedFood = Instantiate(_currentFood, _foodSpawnPoint, Quaternion.identity);
         _spawnedFood.transform.SetParent(transform);
-        _playerMovement.GetCurrentFood(_spawnedFood.GetComponent<SlideableObject>());
     }
 }
