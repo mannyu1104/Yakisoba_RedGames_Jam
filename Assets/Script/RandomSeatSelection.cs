@@ -3,9 +3,9 @@ using UnityEngine;
 public class RandomSeatSelection : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private Transform[] seats;
+    [SerializeField] private Transform[] _seats;
 
-    private Transform selectedSeat;
+    private Transform _selectedSeat;
 
     private void Start()
     {
@@ -23,14 +23,14 @@ public class RandomSeatSelection : MonoBehaviour
 
     private void ChangeBamPosition()
     {
-        if (seats == null || seats.Length == 0) return;
+        if (_seats == null || _seats.Length == 0) return;
 
         // Randomly select a seat
-        int randomIndex = Random.Range(0, seats.Length);
-        selectedSeat = seats[randomIndex];
+        int randomIndex = Random.Range(0, _seats.Length);
+        _selectedSeat = _seats[randomIndex];
 
         // Set the position of the GameObject to the selected seat
-        transform.position = new Vector3 (selectedSeat.position.x, selectedSeat.position.y + 0.5f, selectedSeat.position.z);    
+        transform.position = new Vector3 (_selectedSeat.position.x, _selectedSeat.position.y + 0.5f, _selectedSeat.position.z);    
     }
 }
 
