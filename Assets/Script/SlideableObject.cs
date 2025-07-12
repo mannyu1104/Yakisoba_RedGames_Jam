@@ -31,9 +31,12 @@ public class SlideableObject : MonoBehaviour, ISlidingObjects
         // Match plate movement (base velocity)
         Vector3 stickVelocity = _control.TrayVelocity;
 
-        // Add sliding reaction
-        Vector3 slideForce = -stickVelocity * slideMultiplier;
-        _rb.AddForce(slideForce, ForceMode.VelocityChange);
+        // Match tray movement directly
+        _rb.linearVelocity = new Vector3(stickVelocity.x, _rb.linearVelocity.y, stickVelocity.z);
+
+        // Then apply extra sliding force based on tray tilt (if needed)
+        Vector3 slideForce =- stickVelocity * slideMultiplier;
+        _rb.AddForce(slideForce, ForceMode.Acceleration);
 
         // Prevent from falling below plate
         Vector3 pos = transform.position;

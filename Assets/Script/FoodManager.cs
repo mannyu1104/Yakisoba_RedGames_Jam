@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class FoodManager : MonoBehaviour
 {
+    private PlayerMovement _playerMovement;
+
     [Header("Settings")]
     [SerializeField] private GameObject[] _food;
     [SerializeField] private Transform _player;
@@ -11,7 +13,8 @@ public class FoodManager : MonoBehaviour
     private Vector3 _foodSpawnPoint;
     private void Start()
     {
-        
+        _playerMovement = GetComponentInParent<PlayerMovement>();
+
         SpawnFood();
     }
 
@@ -27,5 +30,6 @@ public class FoodManager : MonoBehaviour
 
         _spawnedFood = Instantiate(_currentFood, _foodSpawnPoint, Quaternion.identity);
         _spawnedFood.transform.SetParent(transform);
+        _playerMovement.GetCurrentFood(_spawnedFood.GetComponent<SlideableObject>());
     }
 }
