@@ -3909,6 +3909,7 @@ MonoBehaviour:
   countdownPanel: {fileID: 1245948486}
   gameUI: {fileID: 1761969468}
   gameOverPanel: {fileID: 1866812825}
+  gyroControlPanel: {fileID: 0}
   buttonControlPanel: {fileID: 0}
   countdownText: {fileID: 1700557649}
   timerText: {fileID: 1872240329}
