@@ -16,8 +16,12 @@ public class SimpleMenuController : MonoBehaviour
     public Button leaderboardButton;
     public Button closeLeaderboardButton;
     public Button changeControlButton;
-
     public Button closeChangeControlButton;
+
+    public Button GyroButton;
+    public Button ButtonButton;
+    public GameObject selectedGyro;
+    public GameObject selectedButton;
 
     public TextMeshProUGUI highestScoreText;
 
@@ -36,10 +40,14 @@ public class SimpleMenuController : MonoBehaviour
         closeLeaderboardButton.onClick.AddListener(HideLeaderboard);
         changeControlButton.onClick.AddListener(ShowChangeControlOptions);
         closeChangeControlButton.onClick.AddListener(HideChangeControlOptions);
+        GyroButton.onClick.AddListener(clickedGyro);
+        ButtonButton.onClick.AddListener(clickedButton);
 
         tapToStartButton.onClick.AddListener(StartGame);
 
-
+        selectedGyro.SetActive(true);
+        selectedButton.SetActive(false);
+        
         int highestScore = PlayerPrefs.GetInt("HighestScore", 0);
         highestScoreText.text = "Highest Score: " + highestScore;
     }
@@ -80,6 +88,20 @@ public class SimpleMenuController : MonoBehaviour
     {
         changeControlPanel.SetActive(false);
         tapToStartButton.gameObject.SetActive(true);
+    }
+
+    public void clickedGyro()
+    {
+        Debug.Log("Gyro Control Selected");
+        selectedGyro.SetActive(true);
+        selectedButton.SetActive(false);
+    }
+
+    public void clickedButton()
+    {
+        Debug.Log("Button Control Selected");
+        selectedGyro.SetActive(false);
+        selectedButton.SetActive(true);
     }
 
 }
