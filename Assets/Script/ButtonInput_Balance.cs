@@ -40,7 +40,7 @@ public class ButtonInput_Balance : MonoBehaviour
 
     private void ControlBalance()
     {
-        transform.Rotate(Vector3.forward, -_moveSpeed * _currentDirection * Time.fixedDeltaTime);
+        transform.Rotate(Vector3.forward, _moveSpeed * _currentDirection * Time.fixedDeltaTime);
     }
 
     private void SmoothDirection()

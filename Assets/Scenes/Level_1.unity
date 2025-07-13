@@ -5038,7 +5038,7 @@ MonoBehaviour:
   finalScoreText: {fileID: 438034195}
   gameOverHighestScoreText: {fileID: 438034194}
   tapToContinueText: {fileID: 438034193}
-  gameDuration: 60
+  gameDuration: 5
 --- !u!4 &1642310722
 Transform:
   m_ObjectHideFlags: 0

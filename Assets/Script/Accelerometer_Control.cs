@@ -41,7 +41,7 @@ public class Accelerometer_Control : MonoBehaviour
 
     private void ControlBalance()
     {
-        transform.Rotate(Vector3.forward, -_moveSpeed * Input.acceleration.x);
+        transform.Rotate(Vector3.forward, _moveSpeed * Input.acceleration.x);
     }
 
     public void CalibrateNeutralPosition()
