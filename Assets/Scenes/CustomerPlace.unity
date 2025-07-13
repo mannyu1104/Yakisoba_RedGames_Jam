@@ -533,9 +533,10 @@ GameObject:
   - component: {fileID: 113615930}
   - component: {fileID: 113615929}
   - component: {fileID: 113615928}
+  - component: {fileID: 113615934}
   - component: {fileID: 113615932}
   - component: {fileID: 113615933}
-  - component: {fileID: 113615934}
+  - component: {fileID: 113615936}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -691,6 +692,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &113615936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113615927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d132676183427084e8e323ab05bd9de9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _verticleMoveSpeed: 8
+  _horizontalMoveSpeed: 0.2
+  _stopLerpSpeed: 3
 --- !u!1 &129602253
 GameObject:
   m_ObjectHideFlags: 0
@@ -2548,6 +2564,54 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552871781}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &663044407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 663044409}
+  - component: {fileID: 663044408}
+  m_Layer: 0
+  m_Name: ControlSwitcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &663044408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663044407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d42063817ea12f845afbff8d207c700a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _accelerometerControl: {fileID: 0}
+  _accelerometerMove: {fileID: 0}
+  _buttonBalanceControl: {fileID: 0}
+  _buttonMove: {fileID: 0}
+--- !u!4 &663044409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663044407}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1595.3912, y: 860.5697, z: 23.904907}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &664666279
 GameObject:
   m_ObjectHideFlags: 0
@@ -3845,6 +3909,7 @@ MonoBehaviour:
   countdownPanel: {fileID: 1245948486}
   gameUI: {fileID: 1761969468}
   gameOverPanel: {fileID: 1866812825}
+  buttonControlPanel: {fileID: 0}
   countdownText: {fileID: 1700557649}
   timerText: {fileID: 1872240329}
   scoreText: {fileID: 476138084}
@@ -6991,8 +7056,9 @@ GameObject:
   - component: {fileID: 2135726053}
   - component: {fileID: 2135726052}
   - component: {fileID: 2135726056}
-  - component: {fileID: 2135726050}
   - component: {fileID: 2135726055}
+  - component: {fileID: 2135726050}
+  - component: {fileID: 2135726058}
   m_Layer: 7
   m_Name: tray
   m_TagString: Tray
@@ -7122,6 +7188,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 0.5, z: 10}
   m_Center: {x: -0, y: 0, z: -0}
+--- !u!114 &2135726058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135726048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aab279a453e50ad4898603581b8de129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 2
+  _shakeForce: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -7138,3 +7218,4 @@ SceneRoots:
   - {fileID: 1112277594}
   - {fileID: 282607442}
   - {fileID: 385056554}
+  - {fileID: 663044409}

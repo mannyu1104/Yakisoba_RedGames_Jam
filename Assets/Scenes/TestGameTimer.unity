@@ -2043,6 +2043,7 @@ MonoBehaviour:
   countdownPanel: {fileID: 102441603}
   gameUI: {fileID: 181398212}
   gameOverPanel: {fileID: 42592693}
+  buttonControlPanel: {fileID: 2102806432}
   countdownText: {fileID: 1149179806}
   timerText: {fileID: 1988101473}
   scoreText: {fileID: 1260945098}

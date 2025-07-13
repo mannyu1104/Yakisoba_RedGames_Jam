@@ -650,35 +650,11 @@ MonoBehaviour:
   - eventID: 2
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1924360992}
-          m_TargetAssemblyTypeName: ButtonInput_Balance, Assembly-CSharp
-          m_MethodName: ReadDirection
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: -1
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - eventID: 3
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1924360992}
-          m_TargetAssemblyTypeName: ButtonInput_Balance, Assembly-CSharp
-          m_MethodName: ReadDirection
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!114 &272703030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,7 +698,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 272703031}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1274975763}
+        m_TargetAssemblyTypeName: ControlSwitcher, Assembly-CSharp
+        m_MethodName: SetWithAccelerometer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &272703031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -846,7 +834,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1924360994}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ControlSwitcher, Assembly-CSharp
         m_MethodName: ToggleInput
         m_Mode: 1
@@ -2301,6 +2289,54 @@ MonoBehaviour:
   slideMultiplier: 3
   coinsNumber: 10
   _bufferDistanceBetweenTray: 0.1
+--- !u!1 &1274975762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1274975764}
+  - component: {fileID: 1274975763}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1274975763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274975762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d42063817ea12f845afbff8d207c700a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accelerometerControl: {fileID: 1924360986}
+  accelerometerMove: {fileID: 1924360995}
+  buttonBalanceControl: {fileID: 1924360992}
+  buttonMove: {fileID: 1924360993}
+--- !u!4 &1274975764
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274975762}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1595.3912, y: 860.5697, z: 23.904907}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1360003278
 GameObject:
   m_ObjectHideFlags: 0
@@ -2436,35 +2472,11 @@ MonoBehaviour:
   - eventID: 2
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1924360992}
-          m_TargetAssemblyTypeName: ButtonInput_Balance, Assembly-CSharp
-          m_MethodName: ReadDirection
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - eventID: 3
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1924360992}
-          m_TargetAssemblyTypeName: ButtonInput_Balance, Assembly-CSharp
-          m_MethodName: ReadDirection
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!114 &1385361668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2508,7 +2520,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1385361669}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1274975763}
+        m_TargetAssemblyTypeName: ControlSwitcher, Assembly-CSharp
+        m_MethodName: SetWithoutAccelerometer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1385361669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3411,7 +3435,6 @@ GameObject:
   - component: {fileID: 1924360995}
   - component: {fileID: 1924360992}
   - component: {fileID: 1924360993}
-  - component: {fileID: 1924360994}
   m_Layer: 7
   m_Name: tray
   m_TagString: Tray
@@ -3552,22 +3575,6 @@ MonoBehaviour:
   _verticleMoveSpeed: 8
   _horizontalMoveSpeed: 3
   _stopLerpSpeed: 3
---- !u!114 &1924360994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1924360985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d42063817ea12f845afbff8d207c700a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accelerometerControl: {fileID: 1924360986}
-  accelerometerMove: {fileID: 1924360995}
-  buttonBalanceControl: {fileID: 1924360992}
-  buttonMove: {fileID: 1924360993}
 --- !u!114 &1924360995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3994,3 +4001,4 @@ SceneRoots:
   - {fileID: 1924360991}
   - {fileID: 60949668}
   - {fileID: 1360003281}
+  - {fileID: 1274975764}

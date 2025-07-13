@@ -17,4 +17,9 @@ public static class GameSettingsManager
             CurrentControlType = (Enum_ControlType)PlayerPrefs.GetInt("ControlType");
         }
     }
+
+    public static Enum_ControlType GetControlType()
+    {
+        return CurrentControlType;
+    }
 }

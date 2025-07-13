@@ -3,45 +3,44 @@ using UnityEngine;
 
 public class ControlSwitcher : MonoBehaviour
 {
-    [SerializeField] private MonoBehaviour accelerometerControl; 
-    [SerializeField] private MonoBehaviour accelerometerMove; 
-    [SerializeField] private MonoBehaviour buttonBalanceControl;       
-    [SerializeField] private MonoBehaviour buttonMove;
+    [SerializeField] private Accelerometer_Control _accelerometerControl; 
+    [SerializeField] private PlayerMovement _accelerometerMove; 
+    [SerializeField] private ButtonInput_Balance _buttonBalanceControl;       
+    [SerializeField] private ButtonInput_Movement _buttonMove;
 
     public static Action<Enum_ControlType> OnControlTypeChanged;
 
     private void Awake()
     {
-        GameSettingsManager.LoadControlType(); // Load saved setting
-        SwitchControl(GameSettingsManager.CurrentControlType);
+        if (_accelerometerControl != null || _buttonBalanceControl != null || _accelerometerMove != null || _buttonMove != null)
+        {
+            GameSettingsManager.LoadControlType(); // Load saved setting
+            SwitchControl(GameSettingsManager.CurrentControlType);
+        }
+        
     }
 
     public void SwitchControl(Enum_ControlType type)
     {
-        accelerometerControl.enabled = (type == Enum_ControlType.WithAccelerometer);
-        accelerometerMove.enabled = (type == Enum_ControlType.WithAccelerometer);
+        _accelerometerControl.enabled = (type == Enum_ControlType.WithAccelerometer);
+        _accelerometerMove.enabled = (type == Enum_ControlType.WithAccelerometer);
 
-        buttonBalanceControl.enabled = (type == Enum_ControlType.WithoutAccelerometer);
-        buttonMove.enabled = (type == Enum_ControlType.WithoutAccelerometer);
+        _buttonBalanceControl.enabled = (type == Enum_ControlType.WithoutAccelerometer);
+        _buttonMove.enabled = (type == Enum_ControlType.WithoutAccelerometer);
 
         
     }
 
-    public void ToggleInput() // Can be called from a UI button
+    public void SetWithAccelerometer()
     {
-        Enum_ControlType controlType;
+        GameSettingsManager.SetControlType(Enum_ControlType.WithAccelerometer);
+        OnControlTypeChanged?.Invoke(Enum_ControlType.WithAccelerometer);
+    }
 
-        if (GameSettingsManager.CurrentControlType == Enum_ControlType.WithAccelerometer)
-        {
-            controlType = Enum_ControlType.WithoutAccelerometer;
-        }
-        else
-        {
-            controlType = Enum_ControlType.WithAccelerometer;
-        }
-
-        GameSettingsManager.SetControlType(controlType);
-        OnControlTypeChanged?.Invoke(controlType);
+    public void SetWithoutAccelerometer()
+    {
+        GameSettingsManager.SetControlType(Enum_ControlType.WithoutAccelerometer);
+        OnControlTypeChanged?.Invoke(Enum_ControlType.WithoutAccelerometer);
     }
 
     private void OnEnable()
