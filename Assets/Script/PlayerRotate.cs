@@ -1,39 +1,29 @@
 using System;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerRotate : MonoBehaviour
 {
-    private Accelerometer_Control _accelerometerControl;
-    private PlayerMovement _accelerometerMove;
-    private ButtonInput_Balance _buttonBalanceControl;
-    private ButtonInput_Movement _buttonMove;
-
-    private bool _isRotating;
+    private PlayerMovement _playerMovement;
+    private Accelerometer_Control _accelerometer_Control;
     private Transform _tray;
 
     private void Start()
     {
-        _accelerometerMove = GetComponent<PlayerMovement>();
-        _buttonMove = GetComponent<ButtonInput_Movement>();
-        _accelerometerControl = GetComponentInChildren<Accelerometer_Control>();
-        _buttonBalanceControl = GetComponentInChildren<ButtonInput_Balance>();
+        _playerMovement = GetComponent<PlayerMovement>();
+        _accelerometer_Control = GetComponentInChildren<Accelerometer_Control>();
         _tray = GameObject.FindGameObjectWithTag("Tray").transform;
-        _accelerometerMove.enabled = false;
-        _accelerometerControl.enabled = false;
-        _buttonBalanceControl.enabled = false;
-        _buttonMove.enabled = false;
-
+        _playerMovement.enabled = false;
+        _accelerometer_Control.enabled = false;
 
         StartCoroutine(StartRotation(180f, 0f));
     }
 
     private void Rotate(float angle1, float angle2)
     {
-        _accelerometerMove.enabled = false;
-        _accelerometerControl.enabled = false;
-        _buttonBalanceControl.enabled = false;
-        _buttonMove.enabled = false;
+        _playerMovement.enabled = false;
+        _accelerometer_Control.enabled = false;
 
         StartCoroutine(StartRotation(angle1, angle2));
     }
@@ -56,17 +46,9 @@ public class PlayerRotate : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
-
-        if (GameSettingsManager.GetControlType() == Enum_ControlType.WithAccelerometer)
-        {
-            _accelerometerMove.enabled = true;
-            _accelerometerControl.enabled = true;
-        }
-        else
-        {
-            _buttonBalanceControl.enabled = true;
-            _buttonMove.enabled = true;
-        }
+        
+        _playerMovement.enabled = true;
+        _accelerometer_Control.enabled = true;
         _tray.rotation = Quaternion.Euler(0, 0, 0);
        
     }
