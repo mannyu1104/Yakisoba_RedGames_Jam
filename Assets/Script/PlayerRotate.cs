@@ -54,6 +54,7 @@ public class PlayerRotate : MonoBehaviour
             float t = elapsed / duration;
             transform.rotation = Quaternion.Lerp(startRotation, endRotation, t);
             elapsed += Time.deltaTime;
+            Debug.Log("elapsed: " + elapsed);
             yield return null;
         }
 
