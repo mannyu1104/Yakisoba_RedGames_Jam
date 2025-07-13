@@ -34,13 +34,28 @@ public class ControlSwitcher : MonoBehaviour
     public void SetWithAccelerometer()
     {
         GameSettingsManager.SetControlType(Enum_ControlType.WithAccelerometer);
-        OnControlTypeChanged?.Invoke(Enum_ControlType.WithAccelerometer);
+
+
+        if (_accelerometerControl != null || _buttonBalanceControl != null || _accelerometerMove != null || _buttonMove != null)
+        {
+            OnControlTypeChanged?.Invoke(Enum_ControlType.WithAccelerometer);
+
+        }
+
+
     }
 
     public void SetWithoutAccelerometer()
     {
         GameSettingsManager.SetControlType(Enum_ControlType.WithoutAccelerometer);
-        OnControlTypeChanged?.Invoke(Enum_ControlType.WithoutAccelerometer);
+
+
+        if (_accelerometerControl != null || _buttonBalanceControl != null || _accelerometerMove != null || _buttonMove != null)
+        {
+            OnControlTypeChanged?.Invoke(Enum_ControlType.WithoutAccelerometer);
+
+        }
+
     }
 
     private void OnEnable()

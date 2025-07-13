@@ -115,7 +115,16 @@ public class GameManager : MonoBehaviour
         isCountingDown = false;
         isGameRunning = true;
         gameUI.SetActive(true);
-        gyroControlPanel.SetActive(true);
+        if(GameSettingsManager.GetControlType() == Enum_ControlType.WithAccelerometer)
+        {
+            gyroControlPanel.SetActive(true);
+
+        }
+        else
+        {
+            buttonControlPanel.SetActive(true);
+        }
+
         score = 0;
         gameTimer = gameDuration;
         UpdateScoreText();
