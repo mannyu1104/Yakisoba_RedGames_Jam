@@ -4,51 +4,34 @@ using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class AirplaneMovement : MonoBehaviour
+public class HitPlayer : MonoBehaviour
 {
     [Header("Setting")]
     [SerializeField] private CinemachineImpulseSource _airplaneShake;
     [SerializeField] private float _shakeForce = 0.3f;
     [SerializeField] private Transform _tray;
 
-    private float _timer;
-    private float _cooldown = 20f;
     private bool _isShake;
     private Vector3 _velocity;
 
     private void Update()
     {
-
-        _timer += Time.deltaTime;
-
-        if (_timer > _cooldown)
-        {
-            if (!CheckTrayGotThing()) return;
-            _timer = 0;
-            AirplaneShake();
-            _isShake = true;
-            _cooldown = Random.Range(30, 60);
-        }
-
         if (_isShake)
         {
             StartCoroutine(TrayShake());
         }
     }
 
-    private bool CheckTrayGotThing()
+    private void OnTriggerEnter(Collider other)
     {
-        if (_tray.childCount == 0)
+        if (other.CompareTag("Player"))
         {
-            return false;
-        }
-        else
-        {
-            return true;
+            _isShake = true;
+            PlayerShake();
         }
     }
 
-    private void AirplaneShake()
+    private void PlayerShake()
     {
         float x = Random.Range(-_shakeForce, _shakeForce);
         float y = Random.Range(-_shakeForce, _shakeForce);
