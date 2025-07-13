@@ -1,32 +1,31 @@
 using UnityEngine;
 
-public class Accelerometer_Control : MonoBehaviour
+public class ButtonInput_Balance : MonoBehaviour
 {
-
     [SerializeField] private float _moveSpeed = 2f;
     [SerializeField] private float _shakeForce = 4f;
+    private int _balanceDirection;
+    private float _currentDirection;
+    private float _lerpSpeed = 5f;
 
     private float _timer;
     private float _force;
     private float _shakeInterval = 2f;
 
-    private Vector3 _calibrationOffset;
-
     private void FixedUpdate()
     {
-
+        SmoothDirection();
         ControlBalance();
 
         _timer += Time.fixedDeltaTime;
 
         if (_timer > _shakeInterval)
         {
-            _timer = 0f;    
+            _timer = 0f;
             RandomForce();
         }
 
-        //Shake();
-
+        Shake();
     }
 
     private void Shake()
@@ -41,13 +40,16 @@ public class Accelerometer_Control : MonoBehaviour
 
     private void ControlBalance()
     {
-        transform.Rotate(Vector3.forward, -_moveSpeed * Input.acceleration.x);
+        transform.Rotate(Vector3.forward, -_moveSpeed * _currentDirection * Time.fixedDeltaTime);
     }
 
-    public void CalibrateNeutralPosition()
+    private void SmoothDirection()
     {
-        // Store current accelerometer reading as the "neutral" position
-        _calibrationOffset = Input.acceleration;
-        Debug.Log("Calibrated neutral position: " + _calibrationOffset);
+        _currentDirection = Mathf.Lerp(_currentDirection, _balanceDirection, Time.fixedDeltaTime * _lerpSpeed);
+    }
+
+    public void ReadDirection(int value)
+    {
+        _balanceDirection = value;
     }
 }
