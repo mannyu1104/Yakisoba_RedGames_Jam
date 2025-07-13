@@ -4101,7 +4101,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1958745014}
         m_TargetAssemblyTypeName: SimpleMenuController, Assembly-CSharp
-        m_MethodName: OnBackgroundClicked
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
