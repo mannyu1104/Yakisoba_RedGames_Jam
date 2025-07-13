@@ -32,6 +32,7 @@ public class AppyGravity : MonoBehaviour
 
         if (!_isTray)
         {
+            transform.SetParent(null);
             _gravity = 9.81f; // Reset gravity when not on the tray
             StartCoroutine(Destroy());
         }

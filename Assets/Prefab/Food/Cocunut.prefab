@@ -140,6 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeedLeft: 0
   _moveSpeedRight: 0
+  _moneyAmount: 0
 --- !u!114 &274540454524744622
 MonoBehaviour:
   m_ObjectHideFlags: 0

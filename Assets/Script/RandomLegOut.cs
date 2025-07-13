@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class RandomLegOut : MonoBehaviour
@@ -10,6 +11,7 @@ public class RandomLegOut : MonoBehaviour
     private float _timer;
     private bool _isSeatSelected;
     private bool _isBamHere;
+    private bool _isMove;
     private bool _spawn = true;
     private Transform _selectedSeat;
     private Animator _animator;
@@ -55,7 +57,14 @@ public class RandomLegOut : MonoBehaviour
         }
         else if (!_isBamHere)
         {
-            _animator.SetBool("LegOut", false);
+            if (!_isMove)
+            {
+                _animator.SetBool("LegOut", false);
+            }
+            else
+            {
+                _animator.SetBool("MoveOut", false);
+            }
             if (_selectedSeat.CompareTag("LeftSeat"))
             {
                 transform.parent.localScale = new Vector3(-1f, 1f, 1f);
@@ -78,7 +87,23 @@ public class RandomLegOut : MonoBehaviour
         Debug.Log(transform.gameObject.name);
         _isSeatSelected = false;
         _changeInterval = Random.Range(1f, 4f); // Randomize the next change interval
-        _animator.SetBool("LegOut", true);
+        if (!_isMove)
+        {
+            _animator.SetBool("LegOut", true);
+        }
+        else
+        {
+            _animator.SetBool("LegOut", false);
+            _animator.SetTrigger("ComeDown");
+            StartCoroutine(Chill());
+        }
+        
+    }
+
+    private IEnumerator Chill()
+    {
+        yield return new WaitForSeconds(1f);
+        _animator.SetBool("MoveOut", true);
     }
 
     private void StopNPC(float test, float test2)
@@ -91,16 +116,24 @@ public class RandomLegOut : MonoBehaviour
         _spawn = true;
     }
 
+    private void MoveBehaviour()
+    {
+        _spawn = true;
+        _isMove = true;
+    }
+
     private void OnEnable()
     {
         AppyGravity.OnFoodDestroy += StopNPC;
         GetMoney.OnSpawnFood += StartNPC;
+        CollectMoney.OnGetMoney += MoveBehaviour;
     }
 
     private void OnDisable()
     {
         AppyGravity.OnFoodDestroy -= StopNPC;
         GetMoney.OnSpawnFood -= StartNPC;
+        CollectMoney.OnGetMoney -= MoveBehaviour;
     }
 
     private void OnDrawGizmos()
