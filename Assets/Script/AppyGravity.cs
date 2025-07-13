@@ -9,7 +9,7 @@ public class AppyGravity : MonoBehaviour
 
     public static Action<float, float> OnFoodDestroy;
 
-    private void Update()
+    private void FixedUpdate()
     {
         CollisionBelow();
         ApplyGravity(); 
@@ -23,24 +23,23 @@ public class AppyGravity : MonoBehaviour
 
     private void CollisionBelow()
     {
-        _isTray = Physics.CheckBox(transform.position, transform.localScale * 1.5f, Quaternion.identity, LayerMask.GetMask("Tray"));
+        _isTray = Physics.CheckBox(transform.position, transform.localScale, Quaternion.identity, LayerMask.GetMask("Tray"));
         
         if (_isTray)
         {
             _gravity = 0f; // Stop gravity when on the tray
         }
-
-        if (!_isTray)
+        else
         {
             transform.SetParent(null);
             _gravity = 9.81f; // Reset gravity when not on the tray
-            StartCoroutine(Destroy());
+            //StartCoroutine(Destroy());
         }
     }
 
     private IEnumerator Destroy()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         Destroy(gameObject);
         OnFoodDestroy?.Invoke(0f, 180f);
     }
