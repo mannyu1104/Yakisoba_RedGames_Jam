@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class Accelerometer_Control : MonoBehaviour
@@ -10,12 +11,10 @@ public class Accelerometer_Control : MonoBehaviour
     private float _force;
     private float _shakeInterval = 2f;
 
-    private Vector3 _calibrationOffset;
-
     private void FixedUpdate()
     {
 
-        ControlBalance();
+        ControlMovement();
 
         _timer += Time.fixedDeltaTime;
 
@@ -39,15 +38,45 @@ public class Accelerometer_Control : MonoBehaviour
         _force = Random.Range(-_shakeForce, _shakeForce);
     }
 
-    private void ControlBalance()
+    private void ControlMovement()
     {
-        transform.Rotate(Vector3.forward, -_moveSpeed * Input.acceleration.x);
+        //_velocityTilt = Input.acceleration;
+        //_velocityTilt = Quaternion.Euler(90, 0, 0) * _velocityTilt;
+
+        //float zVelocity;
+
+        //if (Mathf.Abs(_velocityTilt.z) >= 0.2f)
+        //{
+        //    zVelocity = _velocityTilt.z * _moveSpeed;
+        //}
+        //else
+        //{
+        //    zVelocity = 0f;
+        //}
+
+        //_smoothLerpVelocity.z = Mathf.Lerp(_smoothLerpVelocity.z, zVelocity, Time.deltaTime * _stopLerpSpeed);
+
+        //Vector3 trayDelta = new Vector3(0f, 0f, _smoothLerpVelocity.z * Time.fixedDeltaTime);
+        //Vector3 newPosition = _rb.position + trayDelta;
+
+        //TrayVelocity = (newPosition - _lastPosition) / Time.fixedDeltaTime;
+        //_lastPosition = newPosition;
+
+        //_rb.MovePosition(newPosition);
+
+
+        //if (Input.GetKey(KeyCode.A))
+        //{
+        //    transform.Rotate(Vector3.forward, _moveSpeed * Time.deltaTime);
+        //}
+
+        //if (Input.GetKey(KeyCode.D))
+        //{
+        //    transform.Rotate(Vector3.forward, -_moveSpeed * Time.deltaTime);
+        //}
+
+        transform.Rotate(Vector3.forward, _moveSpeed * Input.acceleration.x * Time.deltaTime);
     }
 
-    public void CalibrateNeutralPosition()
-    {
-        // Store current accelerometer reading as the "neutral" position
-        _calibrationOffset = Input.acceleration;
-        Debug.Log("Calibrated neutral position: " + _calibrationOffset);
-    }
+    
 }
