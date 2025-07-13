@@ -7,6 +7,7 @@ public class GetMoney : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private int _moneyAmount;
     
+    private bool _first = true;
     private GameManager _gameManager;
 
     public static Action OnSpawnFood;
@@ -28,7 +29,13 @@ public class GetMoney : MonoBehaviour
         }
         else
         {
-            StartCoroutine(SpawnFood());
+            if (_first)
+            {
+                _first = false;
+                StartCoroutine(SpawnFood());
+
+            }
+            
         }
     }
 
@@ -37,5 +44,6 @@ public class GetMoney : MonoBehaviour
         OnSpawnFood?.Invoke();
         yield return new WaitForSeconds(1f);
         OnComplete?.Invoke(180f, 0f);
+        _first = true;
     }
 }

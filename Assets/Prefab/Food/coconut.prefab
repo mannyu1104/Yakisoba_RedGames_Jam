@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 9145581902622040274}
   - component: {fileID: 7636117943302787278}
   - component: {fileID: -7596924402612144184}
+  - component: {fileID: 880263927683630144}
   m_Layer: 0
   m_Name: coconut
   m_TagString: Food
@@ -151,6 +152,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34dad1a9370ba4d48b8e841c10b46580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &880263927683630144
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7655939709771484174}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7695640781168727343
 GameObject:
   m_ObjectHideFlags: 0

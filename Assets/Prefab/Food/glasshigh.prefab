@@ -358,6 +358,7 @@ GameObject:
   - component: {fileID: 1182166316134934888}
   - component: {fileID: -4826661202083418652}
   - component: {fileID: 6953630317800568724}
+  - component: {fileID: 199828382147934449}
   m_Layer: 0
   m_Name: glasshigh
   m_TagString: Food
@@ -412,6 +413,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34dad1a9370ba4d48b8e841c10b46580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &199828382147934449
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6703453618182112991}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8483668829775632001
 GameObject:
   m_ObjectHideFlags: 0

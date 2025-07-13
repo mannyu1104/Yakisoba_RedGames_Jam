@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AppyGravity : MonoBehaviour
 {
-    private float _gravity = 9.81f;
+    private float _gravity = 5f;
     private bool _isTray;
 
     public static Action<float, float> OnFoodDestroy;
@@ -23,7 +23,7 @@ public class AppyGravity : MonoBehaviour
 
     private void CollisionBelow()
     {
-        _isTray = Physics.CheckBox(transform.position, transform.localScale, Quaternion.identity, LayerMask.GetMask("Tray"));
+        _isTray = Physics.CheckSphere(transform.position, 0.5f, LayerMask.GetMask("Tray"));
         
         if (_isTray)
         {
@@ -32,14 +32,14 @@ public class AppyGravity : MonoBehaviour
         else
         {
             transform.SetParent(null);
-            _gravity = 9.81f; // Reset gravity when not on the tray
-            //StartCoroutine(Destroy());
+            _gravity = 5f; // Reset gravity when not on the tray
+            StartCoroutine(Destroy());
         }
     }
 
     private IEnumerator Destroy()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
         OnFoodDestroy?.Invoke(0f, 180f);
     }
