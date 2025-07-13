@@ -53,9 +53,11 @@ public class PlayerMovement : MonoBehaviour
 
         float xVelocity = _sideInput * _sideMoveSpeed;
 
-        Vector3 trayDelta = new Vector3(xVelocity, 0f, _smoothLerpVelocity.z * Time.fixedDeltaTime);
+        _smoothLerpVelocity.x = Mathf.Lerp(_smoothLerpVelocity.x, xVelocity, Time.deltaTime * _stopLerpSpeed);
 
-        transform.Translate(trayDelta);
+        Vector3 moveOn = new Vector3(_smoothLerpVelocity.x, 0f, _smoothLerpVelocity.z * Time.fixedDeltaTime);
+
+        transform.Translate(moveOn);
     }
 
     private void SmoothAccelerometerInput()
