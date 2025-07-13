@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8366478306336246827}
   - component: {fileID: 1427929031236879493}
   - component: {fileID: 5077866740434613845}
-  - component: {fileID: 2033433333139694153}
   - component: {fileID: 5973587510629328890}
   - component: {fileID: 1762874514115858122}
   m_Layer: 0
@@ -111,21 +110,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2033433333139694153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4740148622808641478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af553eabfc004334ca6f64c028cece74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slideMultiplier: 1
-  coinsNumber: 10
-  _bufferDistanceBetweenTray: 0.2
 --- !u!114 &5973587510629328890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +125,7 @@ MonoBehaviour:
   _moveSpeedLeft: 0
   _moveSpeedRight: 0
   _moneyAmount: 5
+  _friction: 30
 --- !u!114 &1762874514115858122
 MonoBehaviour:
   m_ObjectHideFlags: 0
