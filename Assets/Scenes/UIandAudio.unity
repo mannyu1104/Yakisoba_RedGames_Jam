@@ -3688,7 +3688,7 @@ MonoBehaviour:
   selectedGyro: {fileID: 93691935}
   selectedButton: {fileID: 1233548247}
   highestScoreText: {fileID: 1890421896}
-  gameSceneName: TestGameTimer
+  gameSceneName: Level_1
 --- !u!224 &1958745015
 RectTransform:
   m_ObjectHideFlags: 0
