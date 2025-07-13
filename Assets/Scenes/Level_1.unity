@@ -3829,7 +3829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5233959841980885475, guid: 564e79bbad09e44478fb3e495675a665, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0018206496
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5233959841980885475, guid: 564e79bbad09e44478fb3e495675a665, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3837,7 +3837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5233959841980885475, guid: 564e79bbad09e44478fb3e495675a665, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0008230916
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5233959841980885475, guid: 564e79bbad09e44478fb3e495675a665, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3881,7 +3881,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8161127741420696092, guid: 564e79bbad09e44478fb3e495675a665, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8161127741420696092, guid: 564e79bbad09e44478fb3e495675a665, type: 3}
       propertyPath: m_IsActive
@@ -3889,7 +3889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8161127741420696092, guid: 564e79bbad09e44478fb3e495675a665, type: 3}
       propertyPath: m_TagString
-      value: Tray
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

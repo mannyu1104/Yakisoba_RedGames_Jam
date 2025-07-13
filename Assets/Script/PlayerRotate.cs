@@ -13,7 +13,7 @@ public class PlayerRotate : MonoBehaviour
     {
         _playerMovement = GetComponent<PlayerMovement>();
         _accelerometer_Control = GetComponentInChildren<Accelerometer_Control>();
-        _tray = GameObject.FindGameObjectWithTag("Tray").transform;
+        _tray = GameObject.FindWithTag("Tray").transform;
         _playerMovement.enabled = false;
         _accelerometer_Control.enabled = false;
 
