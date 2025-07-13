@@ -7,15 +7,22 @@ public class PlayerRotate : MonoBehaviour
 {
     private PlayerMovement _playerMovement;
     private Accelerometer_Control _accelerometer_Control;
+    private ButtonInput_Movement _buttonInputMovement;
+    private ButtonInput_Balance _buttonBalance;
     private Transform _tray;
 
     private void Start()
     {
         _playerMovement = GetComponent<PlayerMovement>();
         _accelerometer_Control = GetComponentInChildren<Accelerometer_Control>();
+        _buttonInputMovement = GetComponent<ButtonInput_Movement>();
+        _buttonBalance = GetComponentInChildren<ButtonInput_Balance>();
+
         _tray = GameObject.FindWithTag("Tray").transform;
         _playerMovement.enabled = false;
         _accelerometer_Control.enabled = false;
+        _buttonInputMovement.enabled = false;
+        _buttonBalance.enabled = false;
 
         StartCoroutine(StartRotation(180f, 0f));
     }
@@ -24,6 +31,8 @@ public class PlayerRotate : MonoBehaviour
     {
         _playerMovement.enabled = false;
         _accelerometer_Control.enabled = false;
+        _buttonInputMovement.enabled = false;
+        _buttonBalance.enabled = false;
 
         StartCoroutine(StartRotation(angle1, angle2));
     }
@@ -46,9 +55,18 @@ public class PlayerRotate : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
+        if(GameSettingsManager.GetControlType() == Enum_ControlType.WithAccelerometer)
+        {
+            _playerMovement.enabled = true;
+            _accelerometer_Control.enabled = true;
+        }
+        else
+        {
+            _buttonInputMovement.enabled = true;
+            _buttonBalance.enabled = true;
+        }
+
         
-        _playerMovement.enabled = true;
-        _accelerometer_Control.enabled = true;
         _tray.rotation = Quaternion.Euler(0, 0, 0);
        
     }
