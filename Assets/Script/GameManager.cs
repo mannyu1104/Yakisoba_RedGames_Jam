@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject countdownPanel;
     public GameObject gameUI;
     public GameObject gameOverPanel;
+    public GameObject buttonControlPanel;
 
     [Header("Countdown Text")]
     public TextMeshProUGUI countdownText;
@@ -139,6 +140,8 @@ public class GameManager : MonoBehaviour
     {
         isGameRunning = false;
         isGameOver = true;
+        gameUI.SetActive(false);
+        buttonControlPanel.SetActive(false);
 
         gameOverPanel.SetActive(true);
         StartCoroutine(AnimateFinalScore());
