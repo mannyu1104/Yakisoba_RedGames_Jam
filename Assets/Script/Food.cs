@@ -13,6 +13,7 @@ public class Food : MonoBehaviour
 
     private void Update()
     {
+        if (transform.parent == null) return;
         if (transform.parent.rotation.z > 0f)
         {
             _moveSpeedRight = 0f; // Reset right speed when moving left
