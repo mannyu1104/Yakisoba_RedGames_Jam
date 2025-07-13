@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public GameObject countdownPanel;
     public GameObject gameUI;
     public GameObject gameOverPanel;
+    public GameObject gyroControlPanel;
+    public GameObject buttonControlPanel;
 
     [Header("Countdown Text")]
     public TextMeshProUGUI countdownText;
@@ -39,6 +41,9 @@ public class GameManager : MonoBehaviour
         gameUI.SetActive(false);
         gameOverPanel.SetActive(false);
         tapToContinueText.SetActive(false);
+        gyroControlPanel.SetActive(false);
+        buttonControlPanel.SetActive(false);
+
         Time.timeScale = 1f;
 
         gameTimer = gameDuration;
@@ -110,6 +115,7 @@ public class GameManager : MonoBehaviour
         isCountingDown = false;
         isGameRunning = true;
         gameUI.SetActive(true);
+        gyroControlPanel.SetActive(true);
         score = 0;
         gameTimer = gameDuration;
         UpdateScoreText();
@@ -139,6 +145,9 @@ public class GameManager : MonoBehaviour
     {
         isGameRunning = false;
         isGameOver = true;
+        gameUI.SetActive(false);
+        buttonControlPanel.SetActive(false);
+        gyroControlPanel.SetActive(false);
 
         gameOverPanel.SetActive(true);
         StartCoroutine(AnimateFinalScore());
