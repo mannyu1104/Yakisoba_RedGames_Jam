@@ -139,6 +139,7 @@ public class GameManager : MonoBehaviour
     {
         isGameRunning = false;
         isGameOver = true;
+        gameUI.SetActive(false);
 
         gameOverPanel.SetActive(true);
         StartCoroutine(AnimateFinalScore());
