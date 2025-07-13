@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class AppyGravity : MonoBehaviour
 {
-    private float _gravity = 5f;
+    private float _gravity = 9.81f;
     private bool _isTray;
 
     public static Action<float, float> OnFoodDestroy;
 
-    private void FixedUpdate()
+    private void Update()
     {
         CollisionBelow();
-        ApplyGravity(); 
+        ApplyGravity();
     }
 
 
@@ -23,16 +23,17 @@ public class AppyGravity : MonoBehaviour
 
     private void CollisionBelow()
     {
-        _isTray = Physics.CheckSphere(transform.position, 0.5f, LayerMask.GetMask("Tray"));
-        
+        _isTray = Physics.CheckBox(transform.position, transform.localScale * 1.5f, Quaternion.identity, LayerMask.GetMask("Tray"));
+
         if (_isTray)
         {
             _gravity = 0f; // Stop gravity when on the tray
         }
-        else
+
+        if (!_isTray)
         {
             transform.SetParent(null);
-            _gravity = 5f; // Reset gravity when not on the tray
+            _gravity = 9.81f; // Reset gravity when not on the tray
             StartCoroutine(Destroy());
         }
     }

@@ -18,7 +18,6 @@ public class CollectMoney : MonoBehaviour
     {
         if (other.CompareTag("Food"))
         {
-            Debug.Log("food");
             StartCoroutine(FoodConvertion(other.gameObject));
         }
     }
@@ -53,8 +52,7 @@ public class CollectMoney : MonoBehaviour
         }
 
         _spawnedMoney = Instantiate(_money[_moneyIndex], _tray.transform.position, Quaternion.identity);
-        _spawnedMoney.transform.SetParent(_tray.transform); 
-        _spawnedMoney.SetActive(true);
+        _spawnedMoney.transform.SetParent(_tray.transform); _spawnedMoney.SetActive(true);
         yield return new WaitForSeconds(1f);
         OnGetReward?.Invoke(0f, -180f);
         OnGetMoney?.Invoke();
