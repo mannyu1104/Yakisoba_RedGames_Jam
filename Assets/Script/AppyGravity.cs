@@ -12,7 +12,7 @@ public class AppyGravity : MonoBehaviour
     private void Update()
     {
         CollisionBelow();
-        ApplyGravity(); 
+        ApplyGravity();
     }
 
 
@@ -24,7 +24,7 @@ public class AppyGravity : MonoBehaviour
     private void CollisionBelow()
     {
         _isTray = Physics.CheckBox(transform.position, transform.localScale * 1.5f, Quaternion.identity, LayerMask.GetMask("Tray"));
-        
+
         if (_isTray)
         {
             _gravity = 0f; // Stop gravity when on the tray
