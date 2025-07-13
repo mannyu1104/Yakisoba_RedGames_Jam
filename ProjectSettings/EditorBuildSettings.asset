@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Gyro.unity
     guid: 2215e0d5a7669b948a372c27983d4f93
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestGameTimer.unity
     guid: 56241f6df3fdccb46b19a6b30f64fb4b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UIandAudio.unity
     guid: b6c47015d86f4b74e800b9fa9ee492a5
   - enabled: 1
