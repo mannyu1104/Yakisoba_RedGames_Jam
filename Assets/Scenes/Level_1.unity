@@ -1055,7 +1055,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 8
+  _sideMoveSpeed: 3
   _stopLerpSpeed: 3
+  _smoothingSpeed: 5
 --- !u!114 &410126948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2145,7 +2147,7 @@ MonoBehaviour:
   - {fileID: 190538395}
   - {fileID: 572312726}
   - {fileID: 1064239159}
-  _npcPrefab: {fileID: 7677990566944188066, guid: 8d8c93232e0c7ac40a4f1e1fafa4e117, type: 3}
+  _npcPrefab: {fileID: 9211753432173466597, guid: f0c93e3cff3f1234eb22d1e366730129, type: 3}
   _npcSpawnPoint: {fileID: 104698488}
   _whatIsNPC:
     serializedVersion: 2

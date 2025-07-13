@@ -46,11 +46,11 @@ public class RandomComeOut : MonoBehaviour
 
         if (_selectedSeat.CompareTag("LeftSeat"))
         {
-            _npcSpawnPoint.position = new Vector3(_spawnPoint.position.x + 1.5f, _spawnPoint.position.y + 1f, _spawnPoint.position.z);
+            _npcSpawnPoint.position = new Vector3(_spawnPoint.position.x + 1.5f, _spawnPoint.position.y + 2f, _spawnPoint.position.z);
         }
         else if (_selectedSeat.CompareTag("RightSeat"))
         {
-            _npcSpawnPoint.position = new Vector3(_spawnPoint.position.x - 1.5f, _spawnPoint.position.y + 1f, _spawnPoint.position.z);
+            _npcSpawnPoint.position = new Vector3(_spawnPoint.position.x - 1.5f, _spawnPoint.position.y + 2f, _spawnPoint.position.z);
         }
 
 
