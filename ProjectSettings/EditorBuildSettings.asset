@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UIandAudio.unity
     guid: b6c47015d86f4b74e800b9fa9ee492a5
+  - enabled: 1
+    path: Assets/Scenes/CustomerPlace.unity
+    guid: 52db3a5d91c2f7b45bf76190f5ef5471
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 43bff02d8a90955408b9f581c85dd9fb, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 88e6b1a44f8c181468eba416257e4182, type: 2}

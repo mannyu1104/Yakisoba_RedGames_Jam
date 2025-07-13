@@ -6,7 +6,7 @@ public class GetMoney : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private int _moneyAmount;
-    
+
     private GameManager _gameManager;
 
     public static Action OnSpawnFood;
@@ -21,7 +21,7 @@ public class GetMoney : MonoBehaviour
     {
         if (other.CompareTag("Money"))
         {
-            _moneyAmount =  other.GetComponent<Money>().MoneyAmount;
+            _moneyAmount = other.GetComponent<Money>().MoneyAmount;
             _gameManager.AddScore(_moneyAmount);
             Destroy(other.gameObject);
             StartCoroutine(SpawnFood());
