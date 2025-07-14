@@ -26,6 +26,7 @@ public class GetMoney : MonoBehaviour
             _gameManager.AddScore(_moneyAmount);
             Destroy(other.gameObject);
             StartCoroutine(SpawnFood());
+            return;
         }
         else
         {

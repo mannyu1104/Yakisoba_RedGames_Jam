@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4797278608337125035}
   - component: {fileID: 165981465546707164}
   - component: {fileID: 3289067588300347506}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 5319601609591232961}
   - component: {fileID: 4875746500362641479}
   - component: {fileID: 2977181682197172237}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 6753513436191856370}
   - component: {fileID: 7859126787013942775}
   - component: {fileID: 8642972408318272790}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cone002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 8664049701190146331}
   - component: {fileID: 6004332782101049715}
   - component: {fileID: 4747954505102871057}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: -4826661202083418652}
   - component: {fileID: 6953630317800568724}
   - component: {fileID: 199828382147934449}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: glasshigh
   m_TagString: Food
   m_Icon: {fileID: 0}
@@ -432,8 +432,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.51229644, y: 0.16393645, z: 0.54059464}
+  m_Center: {x: -0.0038703638, y: 0.030965295, z: 0.0052042096}
 --- !u!1 &8483668829775632001
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 3105407405731718540}
   - component: {fileID: 33388034407555116}
   - component: {fileID: 7284469996621846070}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
