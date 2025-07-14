@@ -12,40 +12,40 @@ public class ButtonInput_Balance : MonoBehaviour
     private float _force;
     private float _shakeInterval = 2f;
 
-    private void FixedUpdate()
+    private void Update()
     {
-        SmoothDirection();
+
         ControlBalance();
 
-        _timer += Time.fixedDeltaTime;
+        //_timer += Time.fixedDeltaTime;
 
-        if (_timer > _shakeInterval)
-        {
-            _timer = 0f;
-            RandomForce();
-        }
+        //if (_timer > _shakeInterval)
+        //{
+        //    _timer = 0f;
+        //    RandomForce();
+        //}
 
-        Shake();
+        //Shake();
     }
 
     private void Shake()
     {
-        transform.Rotate(Vector3.forward, _force * Time.deltaTime);
+        //transform.Rotate(Vector3.forward, _force * Time.deltaTime);
     }
 
     private void RandomForce()
     {
-        _force = Random.Range(-_shakeForce, _shakeForce);
+        //_force = Random.Range(-_shakeForce, _shakeForce);
     }
 
     private void ControlBalance()
     {
-        transform.Rotate(Vector3.forward, -_moveSpeed * _currentDirection * Time.fixedDeltaTime);
+        transform.Rotate(Vector3.forward, _moveSpeed * _balanceDirection * Time.deltaTime, Space.Self);
     }
 
     private void SmoothDirection()
     {
-        _currentDirection = Mathf.Lerp(_currentDirection, _balanceDirection, Time.fixedDeltaTime * _lerpSpeed);
+        //_currentDirection = Mathf.Lerp(_currentDirection, _balanceDirection, Time.fixedDeltaTime * _lerpSpeed);
     }
 
     public void ReadDirection(int value)

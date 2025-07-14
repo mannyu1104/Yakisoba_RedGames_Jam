@@ -19,21 +19,21 @@ public class AirplaneMovement : MonoBehaviour
     private void Update()
     {
 
-        _timer += Time.deltaTime;
+        //_timer += Time.deltaTime;
 
-        if (_timer > _cooldown)
-        {
-            if (!CheckTrayGotThing()) return;
-            _timer = 0;
-            AirplaneShake();
-            _isShake = true;
-            _cooldown = Random.Range(30, 60);
-        }
+        //if (_timer > _cooldown)
+        //{
+        //    if (!CheckTrayGotThing()) return;
+        //    _timer = 0;
+        //    AirplaneShake();
+        //    _isShake = true;
+        //    _cooldown = Random.Range(30, 60);
+        //}
 
-        if (_isShake)
-        {
-            StartCoroutine(TrayShake());
-        }
+        //if (_isShake)
+        //{
+        //    StartCoroutine(TrayShake());
+        //}
     }
 
     private bool CheckTrayGotThing()

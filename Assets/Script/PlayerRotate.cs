@@ -55,6 +55,7 @@ public class PlayerRotate : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
+
         if(GameSettingsManager.GetControlType() == Enum_ControlType.WithAccelerometer)
         {
             _playerMovement.enabled = true;
@@ -66,9 +67,8 @@ public class PlayerRotate : MonoBehaviour
             _buttonBalance.enabled = true;
         }
 
-        
-        _tray.rotation = Quaternion.Euler(0, 0, 0);
-       
+
+        _tray.localRotation = Quaternion.identity;
     }
 
     private void OnEnable()

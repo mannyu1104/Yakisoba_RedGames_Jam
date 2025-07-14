@@ -15,15 +15,15 @@ public class Accelerometer_Control : MonoBehaviour
     private void FixedUpdate()
     {
 
-        ControlBalance();
+        //ControlBalance();
 
-        _timer += Time.fixedDeltaTime;
+        //_timer += Time.fixedDeltaTime;
 
-        if (_timer > _shakeInterval)
-        {
-            _timer = 0f;    
-            RandomForce();
-        }
+        //if (_timer > _shakeInterval)
+        //{
+        //    _timer = 0f;    
+        //    RandomForce();
+        //}
 
         //Shake();
 
@@ -39,10 +39,10 @@ public class Accelerometer_Control : MonoBehaviour
         _force = Random.Range(-_shakeForce, _shakeForce);
     }
 
-    private void ControlBalance()
-    {
-        transform.Rotate(Vector3.forward, -_moveSpeed * Input.acceleration.x);
-    }
+    //private void ControlBalance()
+    //{
+    //    transform.Rotate(Vector3.forward, -_moveSpeed * Input.acceleration.x);
+    //}
 
     public void CalibrateNeutralPosition()
     {

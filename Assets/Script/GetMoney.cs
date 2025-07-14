@@ -29,12 +29,16 @@ public class GetMoney : MonoBehaviour
         }
         else
         {
-            if (_first)
+            if (!other.CompareTag("Food"))
             {
-                _first = false;
-                StartCoroutine(SpawnFood());
+                if (_first)
+                {
+                    _first = false;
+                    StartCoroutine(SpawnFood());
 
+                }
             }
+            
             
         }
     }
